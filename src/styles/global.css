@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5 {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(36px);
-  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+  transition: opacity 1.5s var(--ease), transform 1.5s var(--ease);
   transition-delay: var(--delay, 0ms);
 }
 .animate-on-scroll.scale-in {
@@ -274,7 +274,7 @@ h1, h2, h3, h4, h5 {
   font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  padding: 9px 20px;
+  padding: 8px 18px;
   border-radius: var(--r-full);
   text-decoration: none;
   flex-shrink: 0;
@@ -357,14 +357,17 @@ h1, h2, h3, h4, h5 {
   border-color: #1F2937;
 }
 .navbar__drawer-link {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--fg-muted);
-  padding: 11px 16px;
-  border-radius: 14px;
-  text-decoration: none;
-  transition: var(--t);
-}
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    padding: 11px 16px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: var(--t);
+  }
 .navbar__drawer-link:hover,
 .navbar__drawer-link--active { background: var(--bg-alt); color: var(--fg); font-weight: 600; }
 .navbar__drawer-cta {
@@ -1158,7 +1161,8 @@ h1, h2, h3, h4, h5 {
 /* Faded bg number behind content */
 .process-step__bg-num {
   position: absolute;
-  top: -12px; right: 16px;
+  top: -12px;
+  right: 16px;
   font-size: 7rem;
   font-weight: 900;
   font-family: var(--font-display);

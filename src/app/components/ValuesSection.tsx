@@ -75,7 +75,7 @@ export default function ValuesSection() {
             <div
               key={i}
               className="value-card animate-on-scroll"
-              style={{ "--delay": `${i * 80}ms` } as React.CSSProperties}
+              style={{ "--delay": `${i * 160}ms` } as React.CSSProperties}
             >
               {/* Faded background number */}
               <span className="value-card__bg-num">{v.num}</span>

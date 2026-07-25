@@ -31,7 +31,7 @@ export default function ServicesSection() {
             <div
               key={i}
               className={`service-card animate-on-scroll ${svc.comingSoon ? 'service-card--coming-soon' : ''}`}
-              style={{ "--delay": `${i * 70}ms` } as React.CSSProperties}
+              style={{ "--delay": `${i * 140}ms` } as React.CSSProperties}
             >
               <span className="service-card__bg-num">{svc.num}</span>
               {svc.comingSoon && <span className="service-card__badge">Coming Soon</span>}

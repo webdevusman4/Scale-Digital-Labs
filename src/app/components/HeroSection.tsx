@@ -9,7 +9,7 @@ function HeroWords() {
 
   useEffect(() => {
     WORDS.forEach((_, i) => {
-      setTimeout(() => setShown((p) => [...p, i]), 180 + i * 160);
+      setTimeout(() => setShown((p) => [...p, i]), 360 + i * 320);
     });
   }, []);
 
@@ -19,7 +19,7 @@ function HeroWords() {
         <span
           key={i}
           className="hero__word"
-          style={{ animationDelay: `${180 + i * 160}ms`, display: shown.includes(i) ? "inline-block" : "inline-block" }}
+          style={{ animationDelay: `${360 + i * 320}ms`, display: shown.includes(i) ? "inline-block" : "inline-block" }}
         >
           {i === 2 ? <span className="gradient-text">{word}</span> : word}
         </span>
