@@ -146,7 +146,7 @@ export default function ProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="section bg-[var(--bg)] md:h-[600vh] relative"
+      className="section md:h-[600vh] relative"
       style={{ scrollMarginTop: "6rem" }}
     >
       {/* ── Desktop: Pinned scroll-sequence ── */}
@@ -247,7 +247,7 @@ export default function ProcessSection() {
           {PROCESS_STEPS.map((step) => (
             <div key={step.id} className="flex items-start relative mb-8">
               {/* Node */}
-              <div className="absolute left-0 top-4 w-8 h-8 rounded-full border-2 flex items-center justify-center bg-[var(--bg)] border-[var(--accent)] z-10">
+              <div className="absolute left-0 top-4 w-8 h-8 rounded-full border-2 flex items-center justify-center bg-[var(--bg-alt)] border-[var(--accent)] z-10">
                 <div className="w-2 h-2 rounded-full bg-[var(--accent)]" />
               </div>
 

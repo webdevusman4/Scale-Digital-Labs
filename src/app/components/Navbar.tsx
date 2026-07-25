@@ -70,6 +70,15 @@ export default function Navbar() {
         {/* Separator */}
         <span className="navbar__sep" aria-hidden />
 
+        {/* Desktop Theme Toggle */}
+        <button
+          className="navbar__theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+        >
+          {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}
+        </button>
+
         {/* CTA */}
         <Link to="/contact" className="navbar__cta">
           {"Let's Talk"} <span className="navbar__cta-arrow">→</span>

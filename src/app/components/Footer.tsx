@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="footer bg-gray-50 border-t border-gray-100 dark:bg-[#0f172a] dark:border-gray-800">
+    <footer className="footer" style={{ background: "var(--bg-alt)", borderColor: "var(--border)" }}>
       <div className="container">
         <div className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand Column */}
@@ -10,40 +10,40 @@ export default function Footer() {
             <span className="text-2xl font-bold block mb-4">
               ScaleDigital<span className="gradient-text">Labs</span>
             </span>
-            <p className="text-gray-500 dark:text-gray-400 max-w-sm mb-6">
+            <p style={{ color: "var(--fg-muted)" }} className="max-w-sm mb-6">
               A digital studio crafting bold products for ambitious brands — from strategy to pixel-perfect launch.
             </p>
           </div>
 
           {/* Links Column 1 */}
           <div>
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Company</h4>
+            <h4 className="font-semibold mb-4" style={{ color: "var(--fg)" }}>Company</h4>
             <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Home</Link></li>
-              <li><Link to="/work" className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Work</Link></li>
-              <li><Link to="/contact" className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Contact</Link></li>
+              <li><Link to="/" className="footer__link">Home</Link></li>
+              <li><Link to="/work" className="footer__link">Work</Link></li>
+              <li><Link to="/contact" className="footer__link">Contact</Link></li>
             </ul>
           </div>
 
           {/* Links Column 2 */}
           <div>
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Connect</h4>
+            <h4 className="font-semibold mb-4" style={{ color: "var(--fg)" }}>Connect</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Twitter</a></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Instagram</a></li>
+              <li><a href="#" className="footer__link">Twitter</a></li>
+              <li><a href="#" className="footer__link">LinkedIn</a></li>
+              <li><a href="#" className="footer__link">Instagram</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
+        <div className="py-6 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: "1px solid var(--border)" }}>
+          <p className="footer__copy">
             © {new Date().getFullYear()} ScaleDigitalLabs. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="footer__link">Privacy Policy</a>
+            <a href="#" className="footer__link">Terms of Service</a>
           </div>
         </div>
       </div>
