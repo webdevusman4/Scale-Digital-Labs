@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="footer" style={{ background: "var(--bg-alt)", borderColor: "var(--border)" }}>
+    <footer className="footer" style={{ background: "var(--bg-card)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderColor: "var(--border)" }}>
       <div className="container">
         <div className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand Column */}

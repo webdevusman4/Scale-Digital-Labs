@@ -6,7 +6,7 @@
 :root {
   --bg:           #ffffff;
   --bg-alt:       #f7f8fa;
-  --bg-card:      #ffffff;
+  --bg-card:      rgba(255, 255, 255, 0.7);
   --fg:           #0d0d0d;
   --fg-muted:     #6b7280;
   --fg-faint:     #9ca3af;
@@ -38,7 +38,7 @@
 [data-theme="dark"] {
   --bg:           #0A0A0C;
   --bg-alt:       #0F0F12;
-  --bg-card:      #111827;
+  --bg-card:      rgba(17, 24, 39, 0.65);
   --fg:           #FFFFFF;
   --fg-muted:     #9CA3AF;
   --fg-faint:     #6b7280;
@@ -1141,6 +1141,8 @@ h1, h2, h3, h4, h5 {
 .process-step {
   position: relative;
   background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: 36px 32px 28px;
@@ -1154,7 +1156,6 @@ h1, h2, h3, h4, h5 {
   border-color: transparent;
 }
 [data-theme="dark"] .process-step {
-  background: #111827;
   border-color: #1F2937;
 }
 [data-theme="dark"] .process-step:hover {
