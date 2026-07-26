@@ -17,7 +17,7 @@ export default function Footer() {
 
           {/* Links Column 1 */}
           <div>
-            <h4 className="font-semibold mb-4" style={{ color: "var(--fg)" }}>Company</h4>
+            <h3 className="font-semibold mb-4" style={{ color: "var(--fg)" }}>Company</h3>
             <ul className="space-y-3">
               <li><Link to="/" className="footer__link">Home</Link></li>
               <li><Link to="/work" className="footer__link">Work</Link></li>
@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Links Column 2 */}
           <div>
-            <h4 className="font-semibold mb-4" style={{ color: "var(--fg)" }}>Connect</h4>
+            <h3 className="font-semibold mb-4" style={{ color: "var(--fg)" }}>Connect</h3>
             <ul className="space-y-3">
               <li><a href="#" className="footer__link">Twitter</a></li>
               <li><a href="#" className="footer__link">LinkedIn</a></li>
