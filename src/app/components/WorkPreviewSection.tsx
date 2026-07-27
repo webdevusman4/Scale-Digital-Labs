@@ -19,7 +19,7 @@ const PROJECTS = [
     category: "Web",
     year: "2024",
     tags: ["Web"],
-    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A premium digital product agency crafting interfaces for the world's top brands.",
     link: "https://metalab.com"
   },
@@ -28,7 +28,7 @@ const PROJECTS = [
     category: "Web",
     year: "2024",
     tags: ["Web"],
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Global design and innovation agency that imagines, creates and delivers digital experiences.",
     link: "https://akqa.com"
   },
@@ -37,7 +37,7 @@ const PROJECTS = [
     category: "Web",
     year: "2024",
     tags: ["Web"],
-    img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A digital agency that builds flagship stores and digital products.",
     link: "https://buildinams.com"
   },
@@ -46,7 +46,7 @@ const PROJECTS = [
     category: "Web",
     year: "2025",
     tags: ["Web"],
-    img: "https://images.unsplash.com/photo-1507238691740-14c0122e4eb6?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The world's largest independently-owned design studio.",
     link: "https://pentagram.com"
   },
@@ -55,7 +55,7 @@ const PROJECTS = [
     category: "Web",
     year: "2025",
     tags: ["Web"],
-    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "An independent digital agency focused on human-centric design.",
     link: "https://instrument.com"
   },
@@ -67,7 +67,7 @@ const PROJECTS = [
     clientType: "Luxury Retail",
     year: "2025",
     tags: ["E-commerce"],
-    img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A meticulously crafted storefront concept for a luxury leather goods brand — slow fashion, raw materials, and an artisanal editorial feel.",
     link: "#",
     isConceptCard: true,
@@ -78,7 +78,7 @@ const PROJECTS = [
     clientType: "High-End Fashion",
     year: "2025",
     tags: ["E-commerce"],
-    img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A dark, atmospheric storefront concept for a high-fashion tailored outerwear brand — muted tones, dramatic typography, and editorial imagery.",
     link: "#",
     isConceptCard: true,
@@ -89,7 +89,7 @@ const PROJECTS = [
     clientType: "Sports & Fitness",
     year: "2025",
     tags: ["E-commerce"],
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A bold, energetic e-commerce concept for an urban cycling brand — vibrant palettes, action-first layouts, and seamless product configurators.",
     link: "#",
     isConceptCard: true,
@@ -100,7 +100,7 @@ const PROJECTS = [
     clientType: "Action Sports & Culture",
     year: "2025",
     tags: ["E-commerce"],
-    img: "https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "An edgy, community-driven storefront concept for a street culture brand — raw grid layouts, bold type, and an authentic skate-scene identity.",
     link: "#",
     isConceptCard: true,
@@ -112,7 +112,7 @@ const PROJECTS = [
     category: "UI/UX",
     year: "2024",
     tags: ["UI/UX"],
-    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The world's largest UI and UX reference library for digital product designers.",
     link: "https://mobbin.com"
   },
@@ -121,7 +121,7 @@ const PROJECTS = [
     category: "UI/UX",
     year: "2024",
     tags: ["UI/UX"],
-    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Astronomically good web design inspiration from the best sites on the internet.",
     link: "https://godly.website"
   },
@@ -130,7 +130,7 @@ const PROJECTS = [
     category: "UI/UX",
     year: "2025",
     tags: ["UI/UX"],
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A gallery featuring the best landing page designs for inspiration.",
     link: "https://lapa.ninja"
   },
@@ -139,7 +139,7 @@ const PROJECTS = [
     category: "UI/UX",
     year: "2025",
     tags: ["UI/UX"],
-    img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The go-to resource for discovering and connecting with designers worldwide.",
     link: "https://dribbble.com"
   },
@@ -148,7 +148,7 @@ const PROJECTS = [
     category: "UI/UX",
     year: "2025",
     tags: ["UI/UX"],
-    img: "https://images.unsplash.com/photo-1507238691740-14c0122e4eb6?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The awards for design, creativity and innovation on the internet.",
     link: "https://awwwards.com"
   },
@@ -159,7 +159,7 @@ const PROJECTS = [
     category: "SaaS / Dashboards",
     year: "2024",
     tags: ["SaaS / Dashboards"],
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A better way to build products, offering an incredibly fast and beautiful interface.",
     link: "https://linear.app"
   },
@@ -168,7 +168,7 @@ const PROJECTS = [
     category: "SaaS / Dashboards",
     year: "2024",
     tags: ["SaaS / Dashboards"],
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A blazing fast, totally extendable launcher that supercharges productivity.",
     link: "https://raycast.com"
   },
@@ -177,7 +177,7 @@ const PROJECTS = [
     category: "SaaS / Dashboards",
     year: "2025",
     tags: ["SaaS / Dashboards"],
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The platform for frontend developers, providing the speed and reliability innovators need.",
     link: "https://vercel.com"
   },
@@ -186,7 +186,7 @@ const PROJECTS = [
     category: "SaaS / Dashboards",
     year: "2025",
     tags: ["SaaS / Dashboards"],
-    img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Financial infrastructure platform for the internet with a world-class dashboard.",
     link: "https://stripe.com"
   },
@@ -195,7 +195,7 @@ const PROJECTS = [
     category: "SaaS / Dashboards",
     year: "2025",
     tags: ["SaaS / Dashboards"],
-    img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Build in a weekend. Scale to millions. An open source Firebase alternative.",
     link: "https://supabase.com"
   },
@@ -206,7 +206,7 @@ const PROJECTS = [
     category: "Landing Pages",
     year: "2024",
     tags: ["Landing Pages"],
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Design and publish stunning sites with zero code, featuring a jaw-dropping landing page.",
     link: "https://framer.com"
   },
@@ -215,7 +215,7 @@ const PROJECTS = [
     category: "Landing Pages",
     year: "2024",
     tags: ["Landing Pages"],
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The next-generation calendar for professionals and teams.",
     link: "https://cron.com"
   },
@@ -224,7 +224,7 @@ const PROJECTS = [
     category: "Landing Pages",
     year: "2025",
     tags: ["Landing Pages"],
-    img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A browser that doesn't just meet your needs—it anticipates them.",
     link: "https://arc.net"
   },
@@ -233,7 +233,7 @@ const PROJECTS = [
     category: "Landing Pages",
     year: "2025",
     tags: ["Landing Pages"],
-    img: "https://images.unsplash.com/photo-1507238691740-14c0122e4eb6?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The joyful productivity app where scheduling meets to-do lists.",
     link: "https://amie.so"
   },
@@ -242,7 +242,7 @@ const PROJECTS = [
     category: "Landing Pages",
     year: "2025",
     tags: ["Landing Pages"],
-    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Think better with Reflect, the note-taking app that mirrors your mind.",
     link: "https://reflect.app"
   },
@@ -253,7 +253,7 @@ const PROJECTS = [
     category: "Custom Solutions",
     year: "2024",
     tags: ["Custom Solutions"],
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Foundational software of tomorrow, delivered today for the world's most critical institutions.",
     link: "https://palantir.com"
   },
@@ -262,7 +262,7 @@ const PROJECTS = [
     category: "Custom Solutions",
     year: "2024",
     tags: ["Custom Solutions"],
-    img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Mobilize your data, apps, and AI across any cloud.",
     link: "https://snowflake.com"
   },
@@ -271,7 +271,7 @@ const PROJECTS = [
     category: "Custom Solutions",
     year: "2025",
     tags: ["Custom Solutions"],
-    img: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "The world's first data intelligence platform powered by generative AI.",
     link: "https://databricks.com"
   },
@@ -280,7 +280,7 @@ const PROJECTS = [
     category: "Custom Solutions",
     year: "2025",
     tags: ["Custom Solutions"],
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "Build internal tools remarkably fast. Stop wrestling with UI libraries, hacky endpoints, and React state.",
     link: "https://retool.com"
   },
@@ -289,7 +289,7 @@ const PROJECTS = [
     category: "Custom Solutions",
     year: "2025",
     tags: ["Custom Solutions"],
-    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=900&h=580&fit=crop&auto=format",
+    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     desc: "A global technology consultancy that integrates strategy, design, and engineering.",
     link: "https://thoughtworks.com"
   }
