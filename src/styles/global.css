@@ -535,6 +535,16 @@ h1, h2, h3, h4, h5 {
   overflow: hidden;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s ease;
   cursor: default;
+  /* flex column so inner wrapper fills full card height */
+  display: flex;
+  flex-direction: column;
+}
+/* Full-height inner wrapper — pushes "Learn more" to bottom */
+.service-card__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 .service-card:hover {
   transform: translateY(-6px);
@@ -601,17 +611,30 @@ h1, h2, h3, h4, h5 {
   line-height: 1.3;
 }
 .service-card__desc { font-size: 0.875rem; color: var(--fg-muted); line-height: 1.7; }
-.service-card__more {
+/* Features list */
+.service-card__features {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-card__feature-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.8rem;
-  font-weight: 600;
   color: var(--fg-muted);
-  margin-top: 20px;
-  transition: var(--t);
+  line-height: 1.4;
 }
-.service-card:hover .service-card__more { color: var(--accent); }
+.service-card__feature-dot {
+  font-size: 0.6rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
 /* Bottom gradient bar */
 .service-card__bar {
   position: absolute;
