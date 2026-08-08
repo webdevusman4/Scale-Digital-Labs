@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef } from "react";
+import { useInView, animate } from "motion/react";
 
 /**
  * Counts up from 0 → `end` over `duration` ms once the element
- * attached via `ref` scrolls into view (cubic ease-out).
+ * attached via `ref` scrolls into view.
+ *
+ * Uses Framer Motion's `useInView` for visibility detection and
+ * `animate` for the tween — replacing the manual IntersectionObserver
+ * and requestAnimationFrame loop.
  *
  * Usage:
  *   const { count, ref } = useCountUp(40, 2000);
@@ -10,45 +15,20 @@ import { useState, useEffect, useRef } from "react";
  */
 export function useCountUp(end: number, duration = 2000) {
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
   const ref = useRef<HTMLElement>(null);
-  const rafRef = useRef<number | null>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    if (!isInView) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStarted(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.5 }
-    );
+    const controls = animate(0, end, {
+      duration: duration / 1000,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (value) => setCount(Math.round(value)),
+    });
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!started) return;
-    let startTime: number | null = null;
-
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * end));
-      if (progress < 1) rafRef.current = requestAnimationFrame(step);
-    };
-
-    rafRef.current = requestAnimationFrame(step);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [started, end, duration]);
+    return () => controls.stop();
+  }, [isInView, end, duration]);
 
   return { count, ref };
 }

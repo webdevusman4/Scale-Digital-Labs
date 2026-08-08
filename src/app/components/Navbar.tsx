@@ -20,11 +20,11 @@ export default function Navbar() {
   /* Scroll to a homepage section, navigating home first if needed */
   const goToSection = (id: string) => {
     setOpen(false);
+
     if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 120);
+      // Cross-page: navigate home with scrollTo state so Layout
+      // can handle the scroll deterministically once mounted.
+      navigate("/", { state: { scrollTo: id } });
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }

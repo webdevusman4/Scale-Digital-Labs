@@ -54,11 +54,21 @@ function ScrollAnimator() {
 import Footer from "./Footer";
 
 function LayoutInner() {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-  }, [pathname]);
+    const scrollTo = (location.state as { scrollTo?: string } | null)?.scrollTo;
+
+    if (scrollTo) {
+      // Cross-page anchor: wait one frame for the DOM to paint,
+      // then scroll to the target section deterministically.
+      requestAnimationFrame(() => {
+        document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    }
+  }, [location.pathname, location.state]);
 
   return (
     <>
