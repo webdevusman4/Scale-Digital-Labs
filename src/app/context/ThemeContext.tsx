@@ -9,7 +9,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<string>(
-    () => localStorage.getItem("t8-theme") || "dark"
+    () => localStorage.getItem("t8-theme") || "light"
   );
 
   useEffect(() => {
