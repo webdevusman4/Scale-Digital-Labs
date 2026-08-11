@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Search, Map, Code, Gauge, Rocket, TrendingUp } from "lucide-react";
+import { Search, Map, Code, Gauge, Rocket, TrendingUp, Mouse } from "lucide-react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const PROCESS_STEPS = [
@@ -133,10 +133,10 @@ export default function ProcessSection() {
     return { opacity: 0, y: 12, z: 0 };
   };
 
-  const leftColTop = (() => {
-    const t = Math.min(1, scrollProgress / 0.2);
-    return 30 + t * 20;
-  })();
+  // The left column is now statically centered, so we don't need leftColTop animation.
+  // We'll calculate intro card opacity and position based on early scrollProgress.
+  const introOpacity = Math.max(0, 1 - scrollProgress / 0.15);
+  const introY = scrollProgress * -100;
 
   return (
     <section
@@ -155,9 +155,8 @@ export default function ProcessSection() {
               <div
                 className="absolute left-0 w-full"
                 style={{
-                  top: `${leftColTop}%`,
+                  top: "50%",
                   transform: "translateY(-50%)",
-                  transition: "top 0.15s ease-out",
                 }}
               >
                 <div ref={titleRef as React.RefObject<HTMLDivElement>} className="animate-on-scroll">
@@ -212,6 +211,29 @@ export default function ProcessSection() {
                     </div>
                   );
                 })}
+
+                {/* Initial Intro Scroll Card */}
+                <div
+                  className="absolute inset-0 transition-all duration-300 ease-out flex flex-col items-center justify-center text-center"
+                  style={{
+                    opacity: introOpacity,
+                    transform: `translateY(${introY}px)`,
+                    pointerEvents: introOpacity > 0 ? "auto" : "none",
+                    zIndex: 5,
+                  }}
+                >
+                  <div className="process-step h-full flex flex-col items-center justify-center gap-6 border-dashed border-[var(--border)] bg-transparent">
+                    <div className="text-[var(--accent)] bg-[var(--accent)]/10 p-4 rounded-full">
+                      <Mouse size={32} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 tracking-wide uppercase">System Ready</h3>
+                      <p className="text-[var(--fg-muted)] text-sm tracking-widest uppercase font-semibold">
+                        Scroll to initialize sequence
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

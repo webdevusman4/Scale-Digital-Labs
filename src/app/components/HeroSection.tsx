@@ -1,6 +1,7 @@
 import { motion, type Variants } from "motion/react";
 import { Link } from "react-router";
 import { useCountUp } from "../hooks/useCountUp";
+import ServiceIconCluster from "./ServiceIconCluster";
 
 /* ── Premium easing ─────────────────────────────────────────── */
 const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -129,6 +130,9 @@ export default function HeroSection() {
             <Stat end={98} suffix="%" label="Client Satisfaction" />
           </motion.div>
         </div>
+
+          {/* Desktop-only floating service icons — right half of hero */}
+          <ServiceIconCluster />
       </div>
     </section>
   );
