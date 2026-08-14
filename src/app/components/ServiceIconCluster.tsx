@@ -1,4 +1,5 @@
 import { useMediaQuery } from "../hooks/useMediaQuery";
+import { motion } from "motion/react";
 
 /* ── Inline SVG Icons (outline, 1.5px stroke, round caps) ───── */
 
@@ -149,7 +150,13 @@ export default function ServiceIconCluster() {
   if (!isDesktop) return null;
 
   return (
-    <div className="service-cluster" aria-hidden="true">
+    <motion.div 
+      className="service-cluster" 
+      aria-hidden="true"
+      initial={{ opacity: 0, y: "-45%" }}
+      animate={{ opacity: 1, y: "-50%" }}
+      transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
       {CARDS.map((card) => (
         <div
           key={card.label}
@@ -168,6 +175,6 @@ export default function ServiceIconCluster() {
           )}
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }

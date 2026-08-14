@@ -69,12 +69,14 @@ const StepContent = ({ step }: { step: typeof PROCESS_STEPS[number] }) => {
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useScrollAnimation();
+  const rightColRef = useScrollAnimation();
   const mobileTitleRef = useScrollAnimation();
   const [scrollProgress, setScrollProgress] = useState(0);
 
   /* ── Scroll-progress listener ── */
   useEffect(() => {
     const handleScroll = () => {
+      if (window.innerWidth < 768) return;
       const el = sectionRef.current;
       if (!el) return;
 
@@ -95,54 +97,43 @@ export default function ProcessSection() {
 
   /* ── Derived values ── */
   const STEP_COUNT = PROCESS_STEPS.length;
-  const cardProgress = Math.max(0, (scrollProgress - 0.2) / 0.8);
-
+  
   const activeStep = Math.min(
     STEP_COUNT - 1,
-    Math.floor(cardProgress * STEP_COUNT)
+    Math.floor(scrollProgress * STEP_COUNT)
   );
 
   const getCardStyle = (index: number) => {
-    const bandSize = 1 / STEP_COUNT;
-    const bandStart = index * bandSize;
-    const bandEnd = bandStart + bandSize;
-    const isLast = index === STEP_COUNT - 1;
+    const isActive = index === activeStep;
+    const isPast = index < activeStep;
 
-    const subProgress = Math.max(
-      0,
-      Math.min(1, (cardProgress - bandStart) / bandSize)
-    );
-
-    const isActive = cardProgress >= bandStart && cardProgress < bandEnd;
-    const isPast = cardProgress >= bandEnd;
-
-    if (isLast && (isActive || isPast)) {
-      const fadeIn = isActive ? Math.min(1, subProgress / 0.3) : 1;
-      return { opacity: fadeIn, y: 12 * (1 - fadeIn), z: 10 };
-    }
-
-    if (isActive) {
-      const fadeIn = Math.min(1, subProgress / 0.3);
-      return { opacity: fadeIn, y: 12 * (1 - fadeIn), z: 10 };
-    }
-
-    if (isPast) {
-      return { opacity: 0, y: -12, z: 0 };
-    }
-
-    return { opacity: 0, y: 12, z: 0 };
+    if (isActive) return { opacity: 1, y: 0, z: 10 };
+    if (isPast) return { opacity: 0, y: -20, z: 0 };
+    return { opacity: 0, y: 20, z: 0 };
   };
 
-  // The left column is now statically centered, so we don't need leftColTop animation.
-  // We'll calculate intro card opacity and position based on early scrollProgress.
-  const introOpacity = Math.max(0, 1 - scrollProgress / 0.15);
-  const introY = scrollProgress * -100;
+  const scrollToStep = (index: number) => {
+    const el = sectionRef.current;
+    if (!el) return;
+    
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const sectionTop = rect.top + scrollTop;
+    
+    const sectionH = el.offsetHeight;
+    const viewportH = window.innerHeight;
+    const totalScrollable = sectionH - viewportH;
+    
+    const targetScroll = sectionTop + ((index + 0.5) / STEP_COUNT) * totalScrollable;
+    
+    window.scrollTo({ top: targetScroll, behavior: "smooth" });
+  };
 
   return (
     <section
       ref={sectionRef}
       id="process"
-      className="section md:h-[600vh] relative"
+      className="section md:h-[300vh] relative"
       style={{ scrollMarginTop: "6rem" }}
     >
       {/* ── Desktop: Pinned scroll-sequence ── */}
@@ -170,20 +161,32 @@ export default function ProcessSection() {
                 {/* Step indicator dots */}
                 <div className="flex items-center gap-3 mt-10">
                   {PROCESS_STEPS.map((step, index) => (
-                    <div
+                    <button
                       key={step.id}
-                      className="flex items-center justify-center transition-all duration-500 ease-out"
-                      style={{
-                        width: index === activeStep ? 32 : 10,
-                        height: 10,
-                        borderRadius: 999,
-                        background:
-                          index <= activeStep
-                            ? "var(--gradient)"
-                            : "var(--border)",
-                        opacity: index <= activeStep ? 1 : 0.5,
-                      }}
-                    />
+                      onClick={() => scrollToStep(index)}
+                      className="group relative flex items-center justify-center p-2 -m-2 focus:outline-none"
+                      aria-label={`Go to step: ${step.title}`}
+                    >
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-[var(--bg-elevated)] border border-[var(--border)] text-[var(--fg)] text-xs px-2 py-1 rounded pointer-events-none z-20 shadow-lg">
+                        {step.title}
+                      </div>
+                      
+                      {/* Visual Dot */}
+                      <div
+                        className="transition-all duration-500 ease-out"
+                        style={{
+                          width: index === activeStep ? 32 : 10,
+                          height: 10,
+                          borderRadius: 999,
+                          background:
+                            index <= activeStep
+                              ? "var(--gradient)"
+                              : "var(--border)",
+                          opacity: index <= activeStep ? 1 : 0.5,
+                        }}
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
@@ -191,7 +194,7 @@ export default function ProcessSection() {
 
             {/* Right column — stacked card display */}
             <div className="col-span-7 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[520px]" style={{ height: 260 }}>
+              <div ref={rightColRef as React.RefObject<HTMLDivElement>} className="animate-on-scroll relative w-full max-w-[520px]" style={{ height: 260 }}>
                 {PROCESS_STEPS.map((step, index) => {
                   const cs = getCardStyle(index);
                   return (
@@ -212,28 +215,7 @@ export default function ProcessSection() {
                   );
                 })}
 
-                {/* Initial Intro Scroll Card */}
-                <div
-                  className="absolute inset-0 transition-all duration-300 ease-out flex flex-col items-center justify-center text-center"
-                  style={{
-                    opacity: introOpacity,
-                    transform: `translateY(${introY}px)`,
-                    pointerEvents: introOpacity > 0 ? "auto" : "none",
-                    zIndex: 5,
-                  }}
-                >
-                  <div className="process-step h-full flex flex-col items-center justify-center gap-6 border-dashed border-[var(--border)] bg-transparent">
-                    <div className="text-[var(--accent)] bg-[var(--accent)]/10 p-4 rounded-full">
-                      <Mouse size={32} />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 tracking-wide uppercase">System Ready</h3>
-                      <p className="text-[var(--fg-muted)] text-sm tracking-widest uppercase font-semibold">
-                        Scroll to initialize sequence
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                {/* Intro Card Removed */}
               </div>
             </div>
 
