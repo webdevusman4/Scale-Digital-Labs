@@ -8,7 +8,7 @@ export function AboutHero() {
     <section className="relative w-full pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip">
 
       {/* Background Volumetric Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-[#8B5CF6] opacity-[0.08] blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.08] blur-[150px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col md:flex-row items-stretch gap-12 lg:gap-16">
 
@@ -97,7 +97,7 @@ export function AboutHero() {
             <div
               className="absolute inset-[-20px] rounded-[30px] -z-10 pointer-events-none"
               style={{
-                background: 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, rgba(247,37,133,0.15) 35%, rgba(255,140,66,0.1) 70%, transparent 100%)',
                 filter: 'blur(30px)',
               }}
             />

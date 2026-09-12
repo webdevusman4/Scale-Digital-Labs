@@ -10,7 +10,7 @@ export function AgencyIntro() {
         className="absolute inset-0 pointer-events-none z-0"
         aria-hidden="true"
         style={{
-          background: 'radial-gradient(ellipse at 30% 50%, rgba(123,47,247,0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse at 30% 50%, rgba(123,47,247,0.08) 0%, rgba(247,37,133,0.08) 25%, rgba(255,140,66,0.05) 50%, transparent 60%)',
           filter: 'blur(120px)',
         }}
       />
@@ -93,7 +93,7 @@ export function AgencyIntro() {
                 right: '10%',
                 width: '400px',
                 height: '400px',
-                background: 'radial-gradient(circle, rgba(247,37,133,0.25) 0%, rgba(123,47,247,0.15) 40%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(123,47,247,0.2) 0%, rgba(247,37,133,0.2) 35%, rgba(255,140,66,0.15) 70%, transparent 100%)',
                 filter: 'blur(60px)',
                 transform: 'translate(20%, -50%)',
                 zIndex: 0,

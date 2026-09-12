@@ -51,10 +51,8 @@ export function ServiceBlock({
   const isLeft = side === 'left';
   const isBuild = cluster.includes('BUILD');
 
-  // Reduced cluster-based ambient glow (dialed back to avoid competing with image glow)
-  const glowStyle = isBuild
-    ? 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, transparent 70%)'
-    : 'radial-gradient(circle, rgba(247,37,133,0.14) 0%, rgba(255,140,66,0.08) 45%, transparent 70%)';
+  // Cluster-based ambient glow (dialed back to avoid competing with image glow)
+  const glowStyle = 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, rgba(247,37,133,0.15) 35%, rgba(255,140,66,0.1) 70%, transparent 100%)';
 
   return (
     <section id={id} className="relative w-full py-16 md:py-20 px-6 md:px-12 overflow-hidden scroll-mt-28">

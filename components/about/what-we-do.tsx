@@ -155,7 +155,7 @@ export function WhatWeDo() {
         style={{ y: yParallax }}
         className="absolute inset-0 z-0 pointer-events-none"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[500px] bg-[#8B5CF6] opacity-[0.06] blur-[180px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[500px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.06] blur-[180px]" />
       </motion.div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto">

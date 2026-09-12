@@ -49,7 +49,7 @@ export function ServiceIllustration({ variant, className = '' }: ServiceIllustra
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(123,47,247,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(123,47,247,0.15) 0%, rgba(247,37,133,0.15) 35%, rgba(255,140,66,0.1) 70%, transparent 100%)',
           filter: 'blur(60px)',
         }}
       />

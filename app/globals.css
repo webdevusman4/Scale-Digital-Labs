@@ -66,14 +66,16 @@ body {
 @keyframes neon-glow-pulse {
   0%, 100% {
     box-shadow:
-      0 0 40px var(--glow-purple),
-      0 0 80px rgba(247, 37, 133, 0.15),
+      -30px -20px 60px rgba(123,47,247,0.3),
+      0 20px 60px rgba(247,37,133,0.25),
+      30px -20px 60px rgba(255,140,66,0.25),
       0 8px 32px rgba(0, 0, 0, 0.5);
   }
   50% {
     box-shadow:
-      0 0 50px var(--glow-purple),
-      0 0 90px rgba(247, 37, 133, 0.2),
+      -30px -20px 75px rgba(123,47,247,0.4),
+      0 20px 75px rgba(247,37,133,0.35),
+      30px -20px 75px rgba(255,140,66,0.35),
       0 8px 32px rgba(0, 0, 0, 0.5);
   }
 }
@@ -96,7 +98,10 @@ body {
   -webkit-backdrop-filter: blur(24px) saturate(200%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
-  box-shadow: 0 0 40px rgba(123,47,247,0.45), 0 0 80px rgba(247,37,133,0.15), 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: -30px -20px 60px rgba(123,47,247,0.3), 
+              0 20px 60px rgba(247,37,133,0.25), 
+              30px -20px 60px rgba(255,140,66,0.25), 
+              0 8px 32px rgba(0,0,0,0.5);
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transform: scale(1);
 }
@@ -141,3 +146,15 @@ nav a:focus-visible,
 .overview-card:focus-visible {
   box-shadow: 0 0 0 2px rgba(10,10,18,1), 0 0 0 4px rgba(247,37,133,0.6), 0 0 12px rgba(247,37,133,0.4);
 }
+
+.services-hero-height {
+  min-height: fit-content;
+}
+
+@media (min-width: 768px) {
+  .services-hero-height {
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
+  }
+}
+

@@ -6,12 +6,12 @@ import { HiArrowRight } from 'react-icons/hi2';
 
 export function ServicesHero() {
   return (
-    <section className="relative w-full pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip">
+    <section className="relative w-full services-hero-height flex items-center pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip">
       
       {/* Background Volumetric Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-[#8B5CF6] opacity-[0.08] blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.08] blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-stretch gap-12 lg:gap-16">
+      <div className="relative w-full z-10 flex flex-col md:flex-row items-stretch gap-12 lg:gap-16">
         
         {/* Left Column (Heading + Sub Context) */}
         <div className="w-full md:w-1/2 flex flex-col justify-center pb-6">
@@ -25,7 +25,7 @@ export function ServicesHero() {
             {/* Main Context (Heading) */}
             <h1 className="text-5xl md:text-6xl lg:text-[72px] font-black tracking-tighter leading-[1.0] text-white pt-2">
               ONE TEAM. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F97316] drop-shadow-[0_0_30px_rgba(139,92,246,0.4)]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] drop-shadow-[0_0_30px_rgba(123,47,247,0.4)]">
                 EVERY DIGITAL NEED.
               </span>
             </h1>
@@ -57,17 +57,41 @@ export function ServicesHero() {
 
             {/* Subheadline & CTA */}
             <div className="space-y-6">
-              <p className="text-[15px] leading-[1.65] text-white/65">
-                From building your platform to growing your audience — explore the full ecosystem we bring to your brand.
-              </p>
+              <div className="space-y-4">
+                <p className="text-[15px] leading-[1.65] text-white/65">
+                  From building your platform to growing your audience — explore the full ecosystem we bring to your brand.
+                </p>
+                <p className="text-[15px] leading-[1.65] text-white/65">
+                  Whether you need to build and maintain what powers your business, or grow the audience that finds it, every service below works together as one connected system — not six separate vendors.
+                </p>
+              </div>
               
               <a 
                 href="#process" 
-                className="inline-flex items-center gap-2 text-[15px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F97316] group hover:opacity-80 transition-opacity w-max"
+                className="inline-flex items-center gap-2 text-[15px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] group hover:opacity-80 transition-opacity w-max"
               >
                 See Our Process
                 <HiArrowRight className="w-4 h-4 text-[#F72585] transition-transform group-hover:translate-x-1" />
               </a>
+
+              {/* Trust Stats Row */}
+              <div className="flex items-center gap-5 mt-4">
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-[20px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] bg-[length:60px_100%] bg-left">6</span>
+                  <span className="text-[12px] text-white/50 uppercase tracking-[0.05em]">Core Services</span>
+                </div>
+                <div className="w-[1px] h-[28px] bg-white/[0.12]" />
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-[20px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] bg-[length:60px_100%] bg-left">1</span>
+                  <span className="text-[12px] text-white/50 uppercase tracking-[0.05em]">Dedicated Team</span>
+                </div>
+                <div className="w-[1px] h-[28px] bg-white/[0.12]" />
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-[20px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] bg-[length:60px_100%] bg-left">24/7</span>
+                  <span className="text-[12px] text-white/50 uppercase tracking-[0.05em]">Support</span>
+                </div>
+              </div>
+
             </div>
           </motion.div>
           
@@ -90,7 +114,7 @@ export function ServicesHero() {
             <div 
               className="absolute inset-[-20px] rounded-[30px] -z-10 pointer-events-none"
               style={{
-                background: 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, rgba(247,37,133,0.15) 35%, rgba(255,140,66,0.1) 70%, transparent 100%)',
                 filter: 'blur(30px)',
               }}
             />
@@ -110,7 +134,7 @@ export function ServicesHero() {
 
             <img 
               src="/images/service-hero.png" 
-              alt="ScaleDigitalLabs Services"
+              alt="ScaleDigitalLabs team reviewing a glowing growth dashboard wall display"
               className="w-full h-full object-cover rounded-[24px]"
               style={{ filter: 'none' }}
             />
