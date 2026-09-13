@@ -50,33 +50,6 @@ const MARKET_SERVICES: { icon: NeonIconName; title: string; description: string;
   },
 ];
 
-/* ── Glow Animation ─────────────────────────────────────── */
-
-const glowVariants: any = {
-  hidden: { filter: 'drop-shadow(0 0 4px rgba(247,37,133,0.2))' },
-  visible: {
-    filter: [
-      'drop-shadow(0 0 4px rgba(247,37,133,0.2))',
-      'drop-shadow(0 0 16px rgba(247,37,133,0.6))',
-      'drop-shadow(0 0 8px rgba(247,37,133,0.35))',
-    ],
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-function GradientIcon({ icon }: { icon: NeonIconName }) {
-  const shouldReduceMotion = useReducedMotion();
-  
-  return (
-    <motion.div
-      variants={shouldReduceMotion ? {} : glowVariants}
-      className="relative flex-shrink-0 w-12 h-12 rounded-full bg-white/[0.08] flex items-center justify-center mb-4 border border-white/[0.12]"
-    >
-      <NeonIcon icon={icon} size={24} animated />
-    </motion.div>
-  );
-}
-
 /* ── Service Card ───────────────────────────────────────── */
 
 function ServiceCard({
@@ -86,13 +59,22 @@ function ServiceCard({
 }) {
   return (
     <ScrollRevealItem className="h-full">
-      <Link href={`/services${service.anchor}`} className="capability-card block h-full group">
-        <div className="p-8 h-full flex flex-col">
-          <GradientIcon icon={service.icon} />
-          <h3 className="text-lg md:text-xl font-bold text-white tracking-tight flex-shrink-0 mb-2">
+      <Link href={`/services${service.anchor}`} className="interactive-card block h-full group">
+        <div className="py-5 px-5 h-full flex flex-col items-center justify-center text-center">
+          <div
+            className="w-[56px] h-[56px] rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:border-white/25"
+            style={{
+              background: 'rgba(255,255,255,0.05)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.12)',
+            }}
+          >
+            <NeonIcon icon={service.icon} size={28} animated />
+          </div>
+          <h3 className="text-[18px] font-bold text-white tracking-tight flex-shrink-0 mt-4 mb-2 leading-snug">
             {service.title}
           </h3>
-          <p className="text-[14px] text-white/60 leading-[1.5] font-normal flex-grow m-0">
+          <p className="text-[14px] text-white/60 leading-[1.5] font-normal m-0">
             {service.description}
           </p>
         </div>
@@ -149,6 +131,17 @@ export function WhatWeDo() {
 
   return (
     <section ref={sectionRef} className="relative w-full py-20 md:py-24 px-6 md:px-12 overflow-hidden">
+      
+      {/* SVG Gradient Definition for Neon Icons */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <linearGradient id="service-icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7B2FF7" />
+            <stop offset="55%" stopColor="#F72585" />
+            <stop offset="100%" stopColor="#FF8C42" />
+          </linearGradient>
+        </defs>
+      </svg>
       
       {/* Background with Parallax */}
       <motion.div 

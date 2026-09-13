@@ -32,10 +32,10 @@ export function TechMarquee({ headline = "Trusted tools we work with" }: TechMar
         {[...techStack, ...techStack, ...techStack].map((item, index) => (
           <div 
             key={`tech-${index}`} 
-            className="flex items-center gap-3 pr-12 md:pr-24 transition-all duration-300 ease-out grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(247,37,133,0.5)] text-white"
+            className="group/item flex items-center gap-3 pr-12 md:pr-24 transition-all duration-300 ease-out grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(247,37,133,0.5)] text-white"
           >
-            <item.Icon className="w-8 h-8 flex-shrink-0" />
-            <span className="font-semibold text-lg md:text-xl tracking-tight whitespace-nowrap">{item.name}</span>
+            <item.Icon className="w-8 h-8 flex-shrink-0 transition-colors duration-300 group-hover/item:text-[#F72585]" />
+            <span className="font-semibold text-lg md:text-xl tracking-tight whitespace-nowrap transition-all duration-300 group-hover/item:text-transparent group-hover/item:bg-clip-text group-hover/item:bg-gradient-to-r group-hover/item:from-[#7B2FF7]/80 group-hover/item:via-[#F72585]/80 group-hover/item:to-[#FF8C42]/80">{item.name}</span>
           </div>
         ))}
         </div>

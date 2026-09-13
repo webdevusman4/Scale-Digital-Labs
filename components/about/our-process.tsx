@@ -47,9 +47,15 @@ function StepNode({ num, index }: { num: string; index: number }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4, delay: index * 0.15 }}
-      className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-white/[0.08] backdrop-blur-[20px] border border-white/[0.15] flex items-center justify-center shadow-[0_0_24px_rgba(139,92,246,0.15)]"
+      className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_24px_rgba(247,37,133,0.3)] backdrop-blur-[20px]"
+      style={{
+        border: '2px solid transparent',
+        backgroundImage: 'linear-gradient(rgba(11,15,25,0.95), rgba(11,15,25,0.95)), linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
+        backgroundOrigin: 'border-box',
+        backgroundClip: 'padding-box, border-box',
+      }}
     >
-      <span className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">
+      <span className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">
         {num}
       </span>
     </motion.div>
@@ -67,13 +73,13 @@ function StepCard({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
-      className="w-full"
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="w-full cursor-default"
     >
-      <div className="relative overflow-hidden rounded-[20px] bg-white/[0.05] backdrop-blur-[20px] backdrop-saturate-[180%] border border-white/[0.15] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-6">
+      <div className="relative overflow-hidden rounded-[20px] bg-white/[0.05] backdrop-blur-[20px] backdrop-saturate-[180%] border border-white/[0.15] shadow-[0_8px_32px_rgba(0,0,0,0.35)] p-6 cursor-default">
         {/* Top highlight edge */}
         <div
           className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
@@ -96,57 +102,76 @@ function StepCard({
   );
 }
 
-/* ── Desktop Timeline (horizontal, alternating) ─────────── */
+/* ── Desktop Timeline (horizontal, alternating + zigzag) ── */
 
 function DesktopTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  /* Scroll-driven timeline fill */
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start 80%', 'end 40%'],
-  });
-  const trackWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const segments = [
+    "M 0 20 Q 50 20, 100 80",
+    "M 0 80 Q 50 80, 100 20",
+    "M 0 20 Q 50 20, 100 80",
+    "M 0 80 Q 50 80, 100 20",
+  ];
 
   return (
-    <div ref={containerRef} className="hidden lg:block relative">
-      {/* The 5-column grid — each column holds a top card, node, bottom card */}
-      <div className="grid grid-cols-5 gap-6 relative">
-        {/* ── Timeline Track (behind everything) ──── */}
-        <div className="absolute left-[10%] right-[10%] top-1/2 -translate-y-1/2 h-[2px] z-0">
-          {/* Background track */}
-          <div className="absolute inset-0 bg-white/[0.08] rounded-full" />
-          {/* Animated fill */}
-          <motion.div
-            className="absolute inset-y-0 left-0 rounded-full"
-            style={{
-              width: trackWidth,
-              background:
-                'linear-gradient(90deg, #7B2FF7, #F72585, #FF8C42)',
-              opacity: 0.35,
-            }}
-          />
-        </div>
+    <div className="hidden md:block relative w-full">
+      {/* Shared Gradient for Segments */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <linearGradient id="process-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7B2FF7" />
+            <stop offset="55%" stopColor="#F72585" />
+            <stop offset="100%" stopColor="#FF8C42" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-        {/* ── Steps ─────────────────────────────────── */}
+      {/* The 5-column flex layout */}
+      <div className="flex w-full items-stretch relative">
         {STEPS.map((step, idx) => {
           const isAbove = idx % 2 === 0; // Alternating: 0,2,4 above — 1,3 below
 
           return (
-            <div key={step.num} className="flex flex-col items-center gap-4 relative z-10">
-              {/* Top card area — only visible for "above" steps */}
-              <div className={`flex-1 flex items-end w-full ${isAbove ? '' : 'opacity-0 pointer-events-none'}`}>
-                {isAbove && <StepCard step={step} index={idx} />}
+            <React.Fragment key={step.num}>
+              {/* Column */}
+              <div className="flex-[3] flex flex-col items-center gap-4 relative z-10">
+                {/* Top card area — only visible for "above" steps */}
+                <div className={`flex-1 flex items-end w-full ${isAbove ? '' : 'opacity-0 pointer-events-none'}`}>
+                  {isAbove && <StepCard step={step} index={idx} />}
+                </div>
+
+                {/* Node */}
+                <StepNode num={step.num} index={idx} />
+
+                {/* Bottom card area — only visible for "below" steps */}
+                <div className={`flex-1 flex items-start w-full ${!isAbove ? '' : 'opacity-0 pointer-events-none'}`}>
+                  {!isAbove && <StepCard step={step} index={idx} />}
+                </div>
               </div>
 
-              {/* Node */}
-              <StepNode num={step.num} index={idx} />
-
-              {/* Bottom card area — only visible for "below" steps */}
-              <div className={`flex-1 flex items-start w-full ${!isAbove ? '' : 'opacity-0 pointer-events-none'}`}>
-                {!isAbove && <StepCard step={step} index={idx} />}
-              </div>
-            </div>
+              {/* Connector (inserted between columns) */}
+              {idx < STEPS.length - 1 && (
+                <div className="relative flex-1 h-full min-h-[100px] hidden md:block" aria-hidden="true">
+                  <svg 
+                    viewBox="0 0 100 100" 
+                    preserveAspectRatio="none" 
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <motion.path
+                      d={segments[idx]}
+                      stroke="url(#process-line-gradient)"
+                      strokeWidth="1.5"
+                      fill="none"
+                      opacity="0.5"
+                      vectorEffect="non-scaling-stroke"
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true, margin: '-80px' }}
+                      transition={{ duration: 0.6, ease: 'easeInOut' }}
+                    />
+                  </svg>
+                </div>
+              )}
+            </React.Fragment>
           );
         })}
       </div>
@@ -166,7 +191,7 @@ function MobileTimeline() {
   const trackHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
-    <div ref={containerRef} className="lg:hidden relative">
+    <div ref={containerRef} className="md:hidden relative">
       {/* Vertical track line */}
       <div className="absolute left-7 top-0 bottom-0 w-[2px] z-0">
         <div className="absolute inset-0 bg-white/[0.08] rounded-full" />

@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { NeonIcon, type NeonIconName } from '@/components/ui/neon-icon';
-import { HiArrowDown } from 'react-icons/hi2';
 import { ScrollReveal, ScrollRevealItem } from '@/components/ui/scroll-reveal';
 
 /* ── Service overview data — with upgraded icon names ───── */
@@ -39,24 +38,22 @@ function JumpCard({
 
   return (
     <ScrollRevealItem className="h-full">
-      <a href={service.anchor} onClick={handleClick} className="overview-card block h-full group">
-        <div className="p-6 h-full flex flex-col items-center text-center gap-4">
+      <a href={service.anchor} onClick={handleClick} className="interactive-card block h-full group">
+        <div className="pt-5 pb-[15px] px-4 h-full flex flex-col items-center justify-center text-center gap-3">
           <div
-            className="w-[72px] h-[72px] rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-white/25"
+            className="w-[56px] h-[56px] rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-white/25"
             style={{
               background: 'rgba(255,255,255,0.05)',
               backdropFilter: 'blur(12px)',
               border: '1px solid rgba(255,255,255,0.12)',
             }}
           >
-            <NeonIcon icon={service.icon} size={36} animated />
+            <NeonIcon icon={service.icon} size={28} animated />
           </div>
 
-          <h3 className="text-sm md:text-base font-bold text-white tracking-tight leading-snug">
+          <h3 className="text-[18px] m-0 font-bold text-white tracking-tight leading-snug">
             {service.title}
           </h3>
-
-          <HiArrowDown className="w-4 h-4 text-white/0 group-hover:text-white/40 transition-all duration-300 -mt-1" />
         </div>
       </a>
     </ScrollRevealItem>
@@ -102,7 +99,42 @@ function ClusterLabel({ label }: { label: string }) {
 export function ServicesOverview() {
   return (
     <section className="relative w-full py-8 md:py-14 px-6 md:px-12 overflow-hidden">
+      {/* SVG Gradient Definition for Neon Icons */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <linearGradient id="service-icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7B2FF7" />
+            <stop offset="55%" stopColor="#F72585" />
+            <stop offset="100%" stopColor="#FF8C42" />
+          </linearGradient>
+        </defs>
+      </svg>
       <div className="relative z-10 max-w-[1000px] mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16 flex flex-col items-center">
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full w-max"
+            style={{
+              border: '1px solid transparent',
+              backgroundImage:
+                'linear-gradient(rgba(11,15,25,0.92), rgba(11,15,25,0.92)), linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
+              backgroundOrigin: 'border-box',
+              backgroundClip: 'padding-box, border-box',
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }}
+            />
+            <span className="text-white/85 font-mono text-xs tracking-[0.08em] font-semibold uppercase">
+              OUR SERVICES
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-4">
+            Everything You Need, Under One Roof.
+          </h2>
+        </div>
+
         {/* Build & Power */}
         <ClusterLabel label="Build & Power" />
         <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mb-10 auto-rows-fr">

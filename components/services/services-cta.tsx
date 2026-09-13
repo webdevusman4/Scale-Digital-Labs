@@ -17,32 +17,54 @@ export function ServicesCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative overflow-hidden rounded-3xl bg-white/[0.05] backdrop-blur-[20px] backdrop-saturate-[180%] border border-white/[0.15] shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_0_60px_rgba(123,47,247,0.1)] px-8 py-14 md:px-16 md:py-20 flex flex-col items-center text-center gap-6"
+          className="relative overflow-hidden rounded-[24px] shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_0_60px_rgba(123,47,247,0.1)] px-8 py-14 md:px-16 md:py-20 flex flex-col items-center text-center gap-6"
         >
+          {/* Dark Gradient Background */}
+          <div 
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(20,20,30,0.93), rgba(20,20,30,0.93)), linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
+              backgroundOrigin: 'border-box',
+              backgroundClip: 'padding-box, border-box',
+            }}
+          />
+
+          {/* Gradient Border Frame */}
+          <div 
+            className="absolute inset-0 rounded-[24px] pointer-events-none z-10"
+            style={{
+              padding: '1px',
+              background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%)',
+              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+              WebkitMaskComposite: 'xor',
+              maskComposite: 'exclude',
+            }}
+          />
+
           {/* Top highlight */}
           <div
-            className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
+            className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none z-10"
             style={{
               background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 70%, transparent 100%)',
             }}
           />
 
           {/* Headline */}
-          <h2 className="text-2xl md:text-[36px] lg:text-[40px] font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="relative z-20 text-2xl md:text-[36px] lg:text-[40px] font-extrabold text-white tracking-tight leading-tight">
             Not Sure Where to Start?{' '}
             <br className="hidden md:block" />
             Let&apos;s Figure It Out Together.
           </h2>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-white/[0.6] font-normal leading-relaxed max-w-[520px]">
+          <p className="relative z-20 text-base md:text-lg text-white/[0.6] font-normal leading-relaxed max-w-[520px]">
             Whether it&apos;s one service or the full ecosystem, we&apos;ll help you build the right plan.
           </p>
 
           {/* CTA Button */}
           <Link
             href="/contact"
-            className="mt-4 px-10 py-4 rounded-full bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] text-white font-bold text-sm tracking-wide shadow-[0_4px_24px_rgba(247,37,133,0.4)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_6px_32px_rgba(247,37,133,0.55)]"
+            className="relative z-20 mt-4 px-10 py-4 rounded-full bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] text-white font-bold text-sm tracking-wide shadow-[0_4px_24px_rgba(247,37,133,0.4)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_6px_32px_rgba(247,37,133,0.55)]"
           >
             Start a Project
           </Link>

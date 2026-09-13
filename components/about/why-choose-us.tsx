@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { GlassCard } from '@/components/ui/glass-card';
 import { NeonIcon, type NeonIconName } from '@/components/ui/neon-icon';
 
 /* ── Differentiator Data ────────────────────────────────── */
@@ -54,26 +53,26 @@ function DifferentiatorCard({
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
     >
-      <GlassCard className="p-8 h-full relative overflow-hidden" interactive={false}>
+      <div className="interactive-card p-6 h-full relative overflow-hidden">
         {/* Number Badge — large, low-opacity background flourish */}
         <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.06 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: index * 0.1 + 0.15 }}
-          className="absolute top-4 right-5 text-[80px] font-black leading-none text-white pointer-events-none select-none"
+          className="absolute top-2 right-4 text-[72px] font-black leading-none text-white pointer-events-none select-none"
         >
           {item.num}
         </motion.span>
 
-        <div className="relative z-10 flex flex-col gap-5">
+        <div className="relative z-10 flex flex-col gap-4">
           {/* Icon */}
-          <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/[0.08] border border-white/[0.12] flex items-center justify-center">
-            <NeonIcon icon={item.icon} size={24} />
+          <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-white/[0.08] border border-white/[0.12] flex items-center justify-center">
+            <NeonIcon icon={item.icon} size={22} />
           </div>
 
           {/* Content */}
-          <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-2">
             <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">
               {item.title}
             </h3>
@@ -82,7 +81,7 @@ function DifferentiatorCard({
             </p>
           </div>
         </div>
-      </GlassCard>
+      </div>
     </motion.div>
   );
 }

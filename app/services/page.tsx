@@ -16,16 +16,12 @@ export default function ServicesPage() {
       <ServicesHero />
 
       {/* Reused Trust/Tech Stack Bar */}
-      <section className="bg-transparent pb-16 pt-8">
+      <section className="bg-transparent pb-6 pt-8">
         <TechMarquee headline="The platforms we build and grow on" />
       </section>
 
-      <SectionDivider />
-
       {/* Jump-link overview grid */}
       <ServicesOverview />
-
-      <SectionDivider />
 
       {/* 6 service deep-dive blocks */}
       <ServiceDeepDives />

@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 export function AboutHero() {
   return (
-    <section className="relative w-full pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip">
+    <section className="about-hero-height relative w-full pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip flex flex-col justify-center">
 
       {/* Background Volumetric Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.08] blur-[150px] pointer-events-none" />
@@ -22,16 +22,11 @@ export function AboutHero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-black tracking-tighter leading-[0.9] text-white pt-2">
+            <h1 className="about-hero-headline text-5xl md:text-6xl lg:text-[72px] font-black tracking-tighter leading-[1.0] text-white pt-2">
               DRIVING <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F97316] drop-shadow-[0_0_30px_rgba(139,92,246,0.4)]">
-                DIGITAL
-              </span>
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F97316] drop-shadow-[0_0_30px_rgba(139,92,246,0.4)]">
-                GROWTH
-              </span>
-              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">
+                DIGITAL GROWTH
+              </span> <br />
               GLOBALLY.
             </h1>
           </motion.div>
@@ -68,11 +63,11 @@ export function AboutHero() {
               <div className="flex-1 h-[1px] bg-white/20" />
             </div>
 
-            <div className="space-y-4">
-              <p className="text-[15px] leading-[1.65] text-white/65">
+            <div className="about-hero-text space-y-4">
+              <p className="text-[16px] leading-[1.65] text-white/65">
                 ScaleDigitalLabs is a premier digital agency specializing in high-performance web development, Shopify & e-commerce stores, and data-driven digital marketing.
               </p>
-              <p className="text-[15px] leading-[1.65] text-white/65">
+              <p className="text-[16px] leading-[1.65] text-white/65">
                 We build and maintain what powers your brand &mdash; SaaS development, Web Dev &amp; Maintenance, and Shopify-powered stores. Then we grow it with Google &amp; Meta Ads, social media marketing, and LinkedIn branding.
               </p>
             </div>
@@ -91,7 +86,7 @@ export function AboutHero() {
             On mobile, we enforce an aspect ratio. 
             On desktop, it stretches to match the height of the left column.
           */}
-          <div className="relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px]">
+          <div className="about-hero-image-wrapper relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px]">
 
             {/* Ambient Glow */}
             <div

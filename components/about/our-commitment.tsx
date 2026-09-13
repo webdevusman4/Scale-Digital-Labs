@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { GlassCard } from '@/components/ui/glass-card';
 import { NeonIcon, type NeonIconName } from '@/components/ui/neon-icon';
 
 /* ── Pledge Data ────────────────────────────────────────── */
@@ -44,15 +43,15 @@ function PledgeCard({
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.12, ease: 'easeOut' }}
     >
-      <GlassCard className="p-8 h-full" interactive={false}>
-        <div className="flex flex-col items-center text-center gap-5">
+      <div className="interactive-card p-6 h-full relative overflow-hidden">
+        <div className="flex flex-col items-center text-center gap-4">
           {/* Icon */}
-          <div className="w-14 h-14 rounded-2xl bg-white/[0.08] border border-white/[0.12] flex items-center justify-center">
-            <NeonIcon icon={pledge.icon} size={24} />
+          <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-white/[0.08] border border-white/[0.12] flex items-center justify-center">
+            <NeonIcon icon={pledge.icon} size={22} />
           </div>
 
           {/* Content */}
-          <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-2">
             <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">
               {pledge.title}
             </h3>
@@ -61,7 +60,7 @@ function PledgeCard({
             </p>
           </div>
         </div>
-      </GlassCard>
+      </div>
     </motion.div>
   );
 }

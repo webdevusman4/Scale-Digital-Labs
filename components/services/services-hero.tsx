@@ -6,7 +6,7 @@ import { HiArrowRight } from 'react-icons/hi2';
 
 export function ServicesHero() {
   return (
-    <section className="relative w-full services-hero-height flex items-center pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip">
+    <section className="relative w-full full-height-hero flex items-center pt-8 pb-10 md:pb-[60px] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip">
       
       {/* Background Volumetric Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.08] blur-[150px] pointer-events-none" />
@@ -23,7 +23,7 @@ export function ServicesHero() {
             className="flex flex-col gap-6 w-full"
           >
             {/* Main Context (Heading) */}
-            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-black tracking-tighter leading-[1.0] text-white pt-2">
+            <h1 className="hero-headline text-5xl md:text-6xl lg:text-[72px] font-black tracking-tighter leading-[1.0] text-white pt-2">
               ONE TEAM. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] drop-shadow-[0_0_30px_rgba(123,47,247,0.4)]">
                 EVERY DIGITAL NEED.
@@ -57,40 +57,24 @@ export function ServicesHero() {
 
             {/* Subheadline & CTA */}
             <div className="space-y-6">
-              <div className="space-y-4">
-                <p className="text-[15px] leading-[1.65] text-white/65">
+              <div className="hero-subheadline space-y-4">
+                <p className="text-[16px] leading-[1.65] text-white/65">
                   From building your platform to growing your audience — explore the full ecosystem we bring to your brand.
                 </p>
-                <p className="text-[15px] leading-[1.65] text-white/65">
+                <p className="text-[16px] leading-[1.65] text-white/65">
                   Whether you need to build and maintain what powers your business, or grow the audience that finds it, every service below works together as one connected system — not six separate vendors.
                 </p>
               </div>
               
               <a 
                 href="#process" 
-                className="inline-flex items-center gap-2 text-[15px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] group hover:opacity-80 transition-opacity w-max"
+                className="inline-flex items-center gap-2 text-[20px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] group hover:opacity-80 transition-opacity w-max"
               >
                 See Our Process
-                <HiArrowRight className="w-4 h-4 text-[#F72585] transition-transform group-hover:translate-x-1" />
+                <HiArrowRight className="w-5 h-5 text-[#F72585] transition-transform group-hover:translate-x-1" />
               </a>
 
-              {/* Trust Stats Row */}
-              <div className="flex items-center gap-5 mt-4">
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[20px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] bg-[length:60px_100%] bg-left">6</span>
-                  <span className="text-[12px] text-white/50 uppercase tracking-[0.05em]">Core Services</span>
-                </div>
-                <div className="w-[1px] h-[28px] bg-white/[0.12]" />
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[20px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] bg-[length:60px_100%] bg-left">1</span>
-                  <span className="text-[12px] text-white/50 uppercase tracking-[0.05em]">Dedicated Team</span>
-                </div>
-                <div className="w-[1px] h-[28px] bg-white/[0.12]" />
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[20px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] bg-[length:60px_100%] bg-left">24/7</span>
-                  <span className="text-[12px] text-white/50 uppercase tracking-[0.05em]">Support</span>
-                </div>
-              </div>
+
 
             </div>
           </motion.div>
@@ -108,14 +92,13 @@ export function ServicesHero() {
             On mobile, we enforce an aspect ratio. 
             On desktop, it stretches to match the height of the left column.
           */}
-          <div className="relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px]">
+          <div className="relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px] group hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
             
-            {/* Ambient Glow */}
+            {/* Ambient Glow (Fixed: Using the unified card gradient with a heavy blur for a soft aura) */}
             <div 
-              className="absolute inset-[-20px] rounded-[30px] -z-10 pointer-events-none"
+              className="absolute inset-[-15px] rounded-[30px] -z-10 pointer-events-none opacity-40 blur-[10px] group-hover:blur-[15px] transition-all duration-1000 ease-in-out"
               style={{
-                background: 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, rgba(247,37,133,0.15) 35%, rgba(255,140,66,0.1) 70%, transparent 100%)',
-                filter: 'blur(30px)',
+                background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%)',
               }}
             />
 

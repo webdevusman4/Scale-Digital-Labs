@@ -58,6 +58,15 @@ function AccordionItem({
           shadow-[0_8px_32px_rgba(0,0,0,0.25)]
         `}
       >
+        {/* Active State Background (Matches card hover background) */}
+        <div 
+          className={`absolute inset-0 rounded-[20px] pointer-events-none z-0 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+          style={{
+            backgroundImage: 'linear-gradient(rgba(20,20,30,0.93), rgba(20,20,30,0.93)), linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
+            backgroundOrigin: 'border-box',
+            backgroundClip: 'padding-box, border-box',
+          }}
+        />
         {/* Gradient Border Frame (Active State) */}
         <div 
           className={`absolute inset-0 rounded-[20px] pointer-events-none z-10 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
@@ -103,7 +112,7 @@ function AccordionItem({
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="overflow-hidden"
+              className="overflow-hidden relative z-10"
             >
               <div className="px-6 pb-5">
                 <p className="text-[15px] text-white/[0.65] leading-relaxed font-normal">
