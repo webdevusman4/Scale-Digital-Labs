@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,10 +40,11 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY, isVisible]);
 
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+  if (!mounted || isMobile) return null;
   return (
     <>
       {/* Outer Glow / Follower */}
