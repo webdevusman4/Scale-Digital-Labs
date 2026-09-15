@@ -21,7 +21,7 @@ const FOOTER_LINKS: { title: string; links: { label: string; href: string }[] }[
     links: [
       { label: "About Us", href: "/about" },
       { label: "Our Process", href: "/about#process" },
-      { label: "Portfolio", href: "#" },
+      { label: "Portfolio", href: "/portfolio" },
       { label: "Careers", href: "#" },
       { label: "Contact", href: "/contact" },
     ]

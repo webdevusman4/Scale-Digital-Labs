@@ -213,3 +213,20 @@ select:-webkit-autofill:focus {
   min-height: 320px;
 }
 
+/* ── Portfolio Screenshot Frame ─────────────────────────── */
+.project-screenshot-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+}
+
+.project-screenshot-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+

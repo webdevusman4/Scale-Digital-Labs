@@ -86,11 +86,11 @@ export function AboutHero() {
             On mobile, we enforce an aspect ratio. 
             On desktop, it stretches to match the height of the left column.
           */}
-          <div className="about-hero-image-wrapper relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px]">
+          <div className="about-hero-image-wrapper relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px] group">
 
-            {/* Ambient Glow */}
+            {/* Ambient Glow — only visible on hover */}
             <div
-              className="absolute inset-[-20px] rounded-[30px] -z-10 pointer-events-none"
+              className="absolute inset-[-20px] rounded-[30px] -z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out"
               style={{
                 background: 'radial-gradient(circle, rgba(123,47,247,0.15) 0%, rgba(247,37,133,0.15) 35%, rgba(255,140,66,0.1) 70%, transparent 100%)',
                 filter: 'blur(30px)',

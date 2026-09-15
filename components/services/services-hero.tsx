@@ -94,9 +94,9 @@ export function ServicesHero() {
           */}
           <div className="relative w-full h-full aspect-[4/3] md:aspect-auto overflow-visible rounded-[24px] group hover:scale-[1.02] transition-transform duration-1000 ease-in-out">
             
-            {/* Ambient Glow (Fixed: Using the unified card gradient with a heavy blur for a soft aura) */}
+            {/* Ambient Glow — only visible on hover */}
             <div 
-              className="absolute inset-[-15px] rounded-[30px] -z-10 pointer-events-none opacity-40 blur-[10px] group-hover:blur-[15px] transition-all duration-1000 ease-in-out"
+              className="absolute inset-[-15px] rounded-[30px] -z-10 pointer-events-none opacity-0 group-hover:opacity-40 blur-[10px] group-hover:blur-[15px] transition-all duration-1000 ease-in-out"
               style={{
                 background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%)',
               }}
