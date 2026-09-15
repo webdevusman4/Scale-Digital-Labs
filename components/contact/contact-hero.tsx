@@ -92,13 +92,26 @@ function ContactFormInner() {
   };
 
   const inputClasses =
-    'w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/40 outline-none transition-all duration-300 focus:border-[rgba(247,37,133,0.4)] focus:bg-white/[0.06] focus:shadow-[0_0_0_2px_rgba(247,37,133,0.15)]';
+    'w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/40 outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none peer relative';
 
   const selectClasses =
-    'w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-300 focus:border-[rgba(247,37,133,0.4)] focus:bg-white/[0.06] focus:shadow-[0_0_0_2px_rgba(247,37,133,0.15)] appearance-none cursor-pointer';
+    'w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none appearance-none cursor-pointer peer relative';
+
+  const GradientBorder = () => (
+    <div
+      className="absolute inset-0 rounded-xl pointer-events-none opacity-0 peer-focus:opacity-100 transition-opacity duration-300 z-10"
+      style={{
+        padding: '1px',
+        background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%)',
+        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+      }}
+    />
+  );
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-white/[0.05] backdrop-blur-[20px] backdrop-saturate-[180%] border border-white/[0.15] shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_0_40px_rgba(123,47,247,0.08)] p-6 md:p-10 w-full max-w-[480px]">
+    <div className="interactive-card overflow-hidden p-6 md:p-10 w-full max-w-[480px]">
       {/* Top highlight */}
       <div
         className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
@@ -139,14 +152,17 @@ function ContactFormInner() {
           >
             {/* Name */}
             <div>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className={inputClasses}
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className={inputClasses}
+                />
+                <GradientBorder />
+              </div>
               {errors.name && (
                 <p className="text-[#FF6B6B] text-xs mt-1.5 ml-1">{errors.name}</p>
               )}
@@ -154,14 +170,17 @@ function ContactFormInner() {
 
             {/* Email */}
             <div>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className={inputClasses}
-              />
+              <div className="relative">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                  className={inputClasses}
+                />
+                <GradientBorder />
+              </div>
               {errors.email && (
                 <p className="text-[#FF6B6B] text-xs mt-1.5 ml-1">{errors.email}</p>
               )}
@@ -185,8 +204,9 @@ function ContactFormInner() {
                     </option>
                   ))}
                 </select>
+                <GradientBorder />
                 {/* Custom chevron */}
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none z-20">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M3 4.5L6 7.5L9 4.5" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -209,7 +229,8 @@ function ContactFormInner() {
                     </option>
                   ))}
                 </select>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                <GradientBorder />
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none z-20">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M3 4.5L6 7.5L9 4.5" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -219,14 +240,17 @@ function ContactFormInner() {
 
             {/* Message */}
             <div>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-                placeholder="Tell us a bit about your project or goals..."
-                className={`${inputClasses} resize-none`}
-              />
+              <div className="relative">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  placeholder="Tell us a bit about your project or goals..."
+                  className={`${inputClasses} resize-none`}
+                />
+                <GradientBorder />
+              </div>
               {errors.message && (
                 <p className="text-[#FF6B6B] text-xs mt-1.5 ml-1">{errors.message}</p>
               )}
@@ -259,17 +283,17 @@ export function ContactForm() {
 
 export function ContactHero() {
   return (
-    <section className="relative w-full pt-8 md:pt-12 pb-16 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative w-full pt-4 md:pt-6 pb-16 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/4 w-[50vw] h-[400px] bg-[#7B2FF7] opacity-[0.06] blur-[180px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-20 items-center lg:items-start">
+      <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
         {/* ── Left Column (Text) ─────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="w-full lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left gap-6 lg:pt-8"
+          className="w-full lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left gap-6"
         >
           {/* Eyebrow */}
           <div

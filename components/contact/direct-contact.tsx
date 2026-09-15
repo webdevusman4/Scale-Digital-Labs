@@ -18,8 +18,11 @@ const SOCIALS = [
 
 export function DirectContact() {
   return (
-    <section className="relative w-full py-10 px-6 md:px-12 overflow-hidden">
-      <div className="relative z-10 max-w-[600px] mx-auto flex flex-col items-center text-center gap-8">
+    <section className="relative w-full py-16 px-6 md:px-12 overflow-hidden">
+      {/* Top Divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] max-w-[600px] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      <div className="relative z-10 max-w-[900px] mx-auto flex flex-col items-center gap-8">
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -34,53 +37,53 @@ export function DirectContact() {
           </span>
         </motion.div>
 
-        {/* Email */}
-        <motion.a
-          href="mailto:hello@scaledigitallabs.com"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex items-center gap-3 text-base text-white/75 font-medium hover:text-white transition-colors group"
-        >
-          <HiOutlineEnvelope className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-          <span className="border-b border-transparent group-hover:border-white transition-colors">
-            hello@scaledigitallabs.com
-          </span>
-        </motion.a>
-
-        {/* Social Icons */}
+        {/* Horizontal Content Row */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center gap-4"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex items-center gap-6 md:gap-8 flex-wrap justify-center"
         >
-          {SOCIALS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              aria-label={s.label}
-              className="w-10 h-10 rounded-full bg-white/[0.06] border border-white/[0.12] flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-br hover:from-[#7B2FF7] hover:to-[#FF8C42] hover:border-transparent hover:scale-110 group"
-            >
-              <s.icon className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
-            </a>
-          ))}
-        </motion.div>
+          {/* Email */}
+          <a
+            href="mailto:hello@scaledigitallabs.com"
+            className="flex items-center gap-3 text-[17px] text-white font-semibold hover:text-[#7B2FF7] transition-colors group"
+          >
+            <HiOutlineEnvelope className="w-[22px] h-[22px] text-[#7B2FF7] group-hover:scale-110 transition-transform" />
+            hello@scaledigitallabs.com
+          </a>
 
-        {/* Global note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex items-center gap-2 text-xs text-white/40 font-medium"
-        >
-          <HiOutlineGlobeAlt className="w-3.5 h-3.5" />
-          Working with clients globally, remotely.
-        </motion.p>
+          {/* Divider */}
+          <div className="w-px h-6 bg-white/15 hidden md:block" />
+
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                className="w-11 h-11 rounded-full bg-white/[0.06] border border-white/[0.12] flex items-center justify-center transition-all duration-300 hover:bg-gradient-to-br hover:from-[#7B2FF7] hover:to-[#FF8C42] hover:border-transparent hover:scale-110 group"
+              >
+                <s.icon className="w-[18px] h-[18px] text-white/70 group-hover:text-white transition-colors" />
+              </a>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="w-px h-6 bg-white/15 hidden md:block" />
+
+          {/* Global note */}
+          <p className="flex items-center gap-2.5 text-[15px] text-white/50 font-medium">
+            <HiOutlineGlobeAlt className="w-[18px] h-[18px]" />
+            Working with clients globally, remotely.
+          </p>
+        </motion.div>
       </div>
+
+      {/* Bottom Divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] max-w-[600px] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );
 }

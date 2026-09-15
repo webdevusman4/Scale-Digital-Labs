@@ -130,7 +130,7 @@ body {
 }
 
 /* Focus Ring Customization */
-:focus-visible {
+:focus-visible:not(input):not(textarea):not(select) {
   outline: none;
   box-shadow: 0 0 0 2px rgba(10,10,18,1), 0 0 0 4px rgba(247,37,133,0.6), 0 0 12px rgba(247,37,133,0.4);
   border-radius: inherit;
@@ -139,6 +139,20 @@ body {
 nav a:focus-visible,
 .interactive-card:focus-visible {
   box-shadow: 0 0 0 2px rgba(10,10,18,1), 0 0 0 4px rgba(247,37,133,0.6), 0 0 12px rgba(247,37,133,0.4);
+}
+
+/* Fix browser autofill styling for dark mode forms */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 .full-height-hero {
