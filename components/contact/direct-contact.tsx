@@ -31,7 +31,7 @@ export function DirectContact() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-2.5"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }} />
           <span className="text-xs font-bold tracking-[0.1em] uppercase text-white/50">
             OR REACH US DIRECTLY
           </span>
@@ -48,9 +48,12 @@ export function DirectContact() {
           {/* Email */}
           <a
             href="mailto:hello@scaledigitallabs.com"
-            className="flex items-center gap-3 text-[17px] text-white font-semibold hover:text-[#7B2FF7] transition-colors group"
+            className="flex items-center gap-3 text-[17px] text-white font-semibold hover:text-white transition-colors group"
           >
-            <HiOutlineEnvelope className="w-[22px] h-[22px] text-[#7B2FF7] group-hover:scale-110 transition-transform" />
+            <HiOutlineEnvelope 
+              className="w-[22px] h-[22px] group-hover:scale-110 transition-transform" 
+              style={{ stroke: 'url(#service-icon-gradient)', filter: 'drop-shadow(0 0 8px rgba(247, 37, 133, 0.5))' }}
+            />
             hello@scaledigitallabs.com
           </a>
 
@@ -76,7 +79,10 @@ export function DirectContact() {
 
           {/* Global note */}
           <p className="flex items-center gap-2.5 text-[15px] text-white/50 font-medium">
-            <HiOutlineGlobeAlt className="w-[18px] h-[18px]" />
+            <HiOutlineGlobeAlt 
+              className="w-[18px] h-[18px]" 
+              style={{ stroke: 'url(#service-icon-gradient)', filter: 'drop-shadow(0 0 6px rgba(247, 37, 133, 0.45))' }}
+            />
             Working with clients globally, remotely.
           </p>
         </motion.div>
