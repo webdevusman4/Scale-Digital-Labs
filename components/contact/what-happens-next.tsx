@@ -70,8 +70,7 @@ export function WhatHappensNext() {
 
         {/* ── 3 Step Cards with connecting line ──────── */}
         <div className="relative">
-          {/* Connecting line (desktop only) */}
-          <div className="hidden md:block absolute top-[52px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.2] rounded-full z-0" />
+          {/* Connecting line removed as requested */}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 relative z-10">
             {STEPS.map((step, idx) => (

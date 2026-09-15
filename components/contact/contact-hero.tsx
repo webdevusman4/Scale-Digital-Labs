@@ -92,18 +92,18 @@ function ContactFormInner() {
   };
 
   const inputClasses =
-    'w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/40 outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none peer relative';
+    'block w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/40 outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none peer relative';
 
   const selectClasses =
-    'w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none appearance-none cursor-pointer peer relative';
+    'block w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none appearance-none cursor-pointer peer relative';
 
   const GradientBorder = () => (
     <div
       className="absolute inset-0 rounded-xl pointer-events-none opacity-0 peer-focus:opacity-100 transition-opacity duration-300 z-10"
       style={{
-        padding: '1px',
-        background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%)',
-        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        border: '1px solid transparent',
+        background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%) border-box',
+        WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
         WebkitMaskComposite: 'xor',
         maskComposite: 'exclude',
       }}
@@ -283,17 +283,17 @@ export function ContactForm() {
 
 export function ContactHero() {
   return (
-    <section className="relative w-full pt-4 md:pt-6 pb-16 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative w-full pt-4 md:pt-6 pb-16 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden full-height-hero flex flex-col justify-center">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/4 w-[50vw] h-[400px] bg-[#7B2FF7] opacity-[0.06] blur-[180px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         {/* ── Left Column (Text) ─────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="w-full lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left gap-6"
+          className="w-full flex flex-col items-center text-center lg:items-start lg:text-left gap-6"
         >
           {/* Eyebrow */}
           <div
@@ -340,7 +340,7 @@ export function ContactHero() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="w-full lg:w-1/2 flex justify-center lg:justify-end"
+          className="w-full flex justify-center lg:justify-end"
         >
           <ContactForm />
         </motion.div>
