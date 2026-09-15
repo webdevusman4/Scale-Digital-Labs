@@ -2,31 +2,26 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { GlassCard } from '@/components/ui/glass-card';
-import {
-  HiOutlinePaperAirplane,
-  HiOutlinePhone,
-  HiOutlineDocumentText,
-} from 'react-icons/hi2';
+import { NeonIcon, type NeonIconName } from '@/components/ui/neon-icon';
 
 /* ── Step Data ──────────────────────────────────────────── */
 
-const STEPS = [
+const STEPS: { num: string; icon: NeonIconName; title: string; description: string }[] = [
   {
     num: '01',
-    icon: HiOutlinePaperAirplane,
+    icon: 'paper-plane',
     title: 'Submit Your Info',
     description: 'Fill out the form or send us an email — takes less than 2 minutes.',
   },
   {
     num: '02',
-    icon: HiOutlinePhone,
+    icon: 'phone-call',
     title: 'Discovery Call',
     description: 'We schedule a short call to understand your goals and answer questions.',
   },
   {
     num: '03',
-    icon: HiOutlineDocumentText,
+    icon: 'document-check',
     title: 'Get Your Proposal',
     description: 'You receive a clear plan, timeline, and pricing — no pressure to commit on the spot.',
   },
@@ -87,7 +82,7 @@ export function WhatHappensNext() {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
               >
-                <GlassCard className="p-7 h-full relative overflow-hidden">
+                <div className="interactive-card p-7 h-full relative overflow-hidden">
                   {/* Number badge */}
                   <span className="absolute top-4 right-5 text-[64px] font-black leading-none text-white/[0.05] pointer-events-none select-none">
                     {step.num}
@@ -95,8 +90,8 @@ export function WhatHappensNext() {
 
                   <div className="relative z-10 flex flex-col items-center text-center gap-5">
                     {/* Icon */}
-                    <div className="w-14 h-14 rounded-2xl bg-white/[0.08] flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-[#8B5CF6]" />
+                    <div className="w-14 h-14 rounded-2xl bg-white/[0.08] flex items-center justify-center transition-all duration-300 group-hover:border-white/25">
+                      <NeonIcon icon={step.icon} size={28} />
                     </div>
                     <div className="flex flex-col gap-2">
                       <h3 className="text-lg md:text-xl font-bold text-white tracking-tight">
@@ -107,7 +102,7 @@ export function WhatHappensNext() {
                       </p>
                     </div>
                   </div>
-                </GlassCard>
+                </div>
               </motion.div>
             ))}
           </div>

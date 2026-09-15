@@ -43,8 +43,8 @@ export function DirectContact() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex items-center gap-3 text-base text-white/75 font-medium hover:text-white transition-colors group"
         >
-          <HiOutlineEnvelope className="w-5 h-5 text-[#8B5CF6]" />
-          <span className="border-b border-transparent group-hover:border-[#8B5CF6] transition-colors">
+          <HiOutlineEnvelope className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+          <span className="border-b border-transparent group-hover:border-white transition-colors">
             hello@scaledigitallabs.com
           </span>
         </motion.a>

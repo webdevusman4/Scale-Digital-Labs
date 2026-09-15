@@ -17,7 +17,7 @@ export function AgencyIntro() {
       
       {/* Neon Glassmorphic Card */}
       <div
-        className="relative z-10 w-full rounded-[20px] p-8 md:p-12 lg:p-16 overflow-hidden max-w-[1100px]"
+        className="interactive-card relative z-10 w-full rounded-[20px] p-8 md:p-12 lg:p-16 overflow-hidden max-w-[1100px]"
         style={{
           background: 'rgba(255, 255, 255, 0.04)',
           backdropFilter: 'blur(24px) saturate(200%)',
@@ -82,7 +82,7 @@ export function AgencyIntro() {
           </div>
 
           {/* Right Column (Visual Container) */}
-          <div className="w-full lg:w-[50%] relative">
+          <div className="w-full lg:w-[50%] relative flex justify-center items-center">
             
             {/* ANCHORED GLOW */}
             <div
@@ -100,59 +100,11 @@ export function AgencyIntro() {
               }}
             />
             
-            {/* Dashboard Mockup Illustration */}
-            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-[#0B0F19]/80 backdrop-blur-md z-10 flex flex-col p-4 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              
-              {/* Header */}
-              <div className="w-full flex items-center justify-between mb-6 pb-4 border-b border-white/5">
-                <div className="flex gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                </div>
-                <div className="w-24 h-2 rounded-full bg-white/5" />
-              </div>
-
-              {/* Grid Content */}
-              <div className="flex-1 flex gap-4 md:gap-6">
-                {/* Sidebar */}
-                <div className="w-[30%] h-full flex flex-col gap-3">
-                  <div className="w-full h-8 rounded-md bg-white/10" />
-                  <div className="w-full h-8 rounded-md bg-white/5" />
-                  <div className="w-full h-8 rounded-md bg-white/5" />
-                  <div className="w-full h-8 rounded-md bg-white/5" />
-                </div>
-                
-                {/* Main Area */}
-                <div className="flex-1 h-full flex flex-col gap-4 md:gap-6">
-                  {/* Chart area */}
-                  <div className="w-full h-[60%] rounded-lg border border-white/5 bg-gradient-to-br from-white/5 to-transparent p-4 relative overflow-hidden">
-                    {/* Abstract line chart */}
-                    <svg viewBox="0 0 100 50" className="absolute bottom-0 left-0 w-full h-[80%]" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#7B2FF7" stopOpacity="0.5" />
-                          <stop offset="100%" stopColor="#7B2FF7" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M0,50 L0,30 C20,30 30,10 50,20 C70,30 80,5 100,10 L100,50 Z" fill="url(#chartGrad)" />
-                      <path d="M0,30 C20,30 30,10 50,20 C70,30 80,5 100,10" fill="none" stroke="#F72585" strokeWidth="2" />
-                    </svg>
-                  </div>
-                  {/* Stats area */}
-                  <div className="flex gap-4 md:gap-6 flex-1">
-                    <div className="flex-1 rounded-lg border border-white/5 bg-white/[0.02] p-3 flex flex-col justify-end">
-                      <div className="w-8 h-2 rounded-full bg-[#FF8C42]/60 mb-2" />
-                      <div className="w-full h-1.5 rounded-full bg-white/10" />
-                    </div>
-                    <div className="flex-1 rounded-lg border border-white/5 bg-white/[0.02] p-3 flex flex-col justify-end">
-                      <div className="w-12 h-2 rounded-full bg-[#F72585]/60 mb-2" />
-                      <div className="w-3/4 h-1.5 rounded-full bg-white/10" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img 
+              src="/images/service-saas-development.png"
+              alt="Systems That Scale"
+              className="relative z-10 w-full max-w-[500px] object-contain drop-shadow-[0_0_35px_rgba(247,37,133,0.15)]"
+            />
           </div>
         </div>
       </div>

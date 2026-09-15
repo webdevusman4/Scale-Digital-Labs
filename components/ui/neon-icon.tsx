@@ -20,7 +20,9 @@ export type NeonIconName =
   | 'bar-chart'
   | 'lightning-bolt'
   | 'chat-bubble'
-  | 'document-check';
+  | 'document-check'
+  | 'paper-plane'
+  | 'phone-call';
 
 interface NeonIconProps {
   icon: NeonIconName;
@@ -248,6 +250,23 @@ function getIconPath(icon: NeonIconName, gradientId: string): React.ReactNode {
           <path d="M28 4v8h8" {...common} strokeWidth={1.5} opacity={0.5} />
           {/* Checkmark */}
           <polyline points="16,26 22,32 34,20" {...common} strokeWidth={2.5} />
+        </>
+      );
+
+    case 'paper-plane':
+      return (
+        <>
+          {/* Paper plane body */}
+          <path d="M44 4L22 44l-6-16-12-6L44 4z" {...common} />
+          <path d="M44 4L16 28v12l6-8" {...common} />
+        </>
+      );
+
+    case 'phone-call':
+      return (
+        <>
+          {/* Phone receiver */}
+          <path d="M37 29c-1 3-4 5-7 5-11 0-20-9-20-20 0-3 2-6 5-7l5 7-3 4c3 6 7 10 13 13l4-3 6 5z" {...common} />
         </>
       );
 

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { HiOutlineCheckCircle } from 'react-icons/hi2';
 
@@ -40,11 +41,14 @@ const BUDGET_RANGES = [
 
 /* ── Contact Form Card ──────────────────────────────────── */
 
-function ContactForm() {
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const prefilledService = searchParams?.get('service') ?? '';
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    projectType: '',
+    projectType: prefilledService,
     budget: '',
     message: '',
   });
@@ -243,6 +247,14 @@ function ContactForm() {
   );
 }
 
+export function ContactForm() {
+  return (
+    <Suspense fallback={<div className="w-full max-w-[480px] h-[400px] bg-white/[0.05] rounded-3xl animate-pulse" />}>
+      <ContactFormInner />
+    </Suspense>
+  );
+}
+
 /* ── Hero Section (Split: Left text, Right form) ────────── */
 
 export function ContactHero() {
@@ -251,13 +263,13 @@ export function ContactHero() {
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/4 w-[50vw] h-[400px] bg-[#7B2FF7] opacity-[0.06] blur-[180px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-20 items-start">
+      <div className="relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-20 items-center lg:items-start">
         {/* ── Left Column (Text) ─────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="w-full lg:w-1/2 flex flex-col gap-6 lg:pt-8"
+          className="w-full lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left gap-6 lg:pt-8"
         >
           {/* Eyebrow */}
           <div
@@ -304,7 +316,7 @@ export function ContactHero() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="w-full lg:w-1/2 flex lg:justify-end"
+          className="w-full lg:w-1/2 flex justify-center lg:justify-end"
         >
           <ContactForm />
         </motion.div>

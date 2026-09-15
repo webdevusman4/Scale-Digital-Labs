@@ -17,29 +17,8 @@ export function ServicesCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative overflow-hidden rounded-[24px] shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_0_60px_rgba(123,47,247,0.1)] px-8 py-14 md:px-16 md:py-20 flex flex-col items-center text-center gap-6"
+          className="interactive-card relative overflow-hidden rounded-[24px] shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_0_60px_rgba(123,47,247,0.1)] px-8 py-14 md:px-16 md:py-20 flex flex-col items-center text-center gap-6"
         >
-          {/* Dark Gradient Background */}
-          <div 
-            className="absolute inset-0 pointer-events-none z-0"
-            style={{
-              backgroundImage: 'linear-gradient(rgba(20,20,30,0.93), rgba(20,20,30,0.93)), linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box',
-            }}
-          />
-
-          {/* Gradient Border Frame */}
-          <div 
-            className="absolute inset-0 rounded-[24px] pointer-events-none z-10"
-            style={{
-              padding: '1px',
-              background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%)',
-              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-              WebkitMaskComposite: 'xor',
-              maskComposite: 'exclude',
-            }}
-          />
 
           {/* Top highlight */}
           <div
