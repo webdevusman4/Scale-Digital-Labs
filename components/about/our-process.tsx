@@ -224,7 +224,19 @@ function MobileTimeline() {
 
 /* ── Main Section ───────────────────────────────────────── */
 
-export function OurProcess() {
+export interface OurProcessProps {
+  eyebrow?: string;
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
+  showBottomLink?: boolean;
+}
+
+export function OurProcess({
+  eyebrow = "OUR PROCESS",
+  title = "From Idea to Impact — Here's How We Work.",
+  subtitle = "A clear, structured process so you always know what's happening and why.",
+  showBottomLink = false,
+}: OurProcessProps = {}) {
   return (
     <section className="relative w-full py-12 md:py-24 px-6 md:px-12 overflow-hidden">
       {/* Top gradient divider */}
@@ -258,24 +270,39 @@ export function OurProcess() {
               style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }}
             />
             <span className="text-white/85 font-mono text-xs tracking-[0.08em] font-semibold uppercase">
-              OUR PROCESS
+              {eyebrow}
             </span>
           </div>
 
           {/* Headline */}
           <h2 className="text-[26px] md:text-4xl lg:text-[44px] font-extrabold text-white tracking-tight leading-tight mb-5">
-            From Idea to Impact — Here&apos;s How We Work.
+            {title}
           </h2>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-white/[0.65] font-normal leading-relaxed max-w-[560px]">
-            A clear, structured process so you always know what&apos;s happening and why.
-          </p>
+          {subtitle && (
+            <p className="text-base md:text-lg text-white/[0.65] font-normal leading-relaxed max-w-[560px]">
+              {subtitle}
+            </p>
+          )}
         </motion.div>
 
         {/* ── Timeline ───────────────────────────────── */}
         <DesktopTimeline />
         <MobileTimeline />
+
+        {/* Optional Footer Link */}
+        {showBottomLink && (
+          <div className="w-full flex justify-center mt-16 relative z-10">
+            <a 
+              href="/about"
+              className="inline-flex items-center gap-2 text-[#7B2FF7] font-semibold tracking-widest uppercase hover:text-white transition-colors group text-sm"
+            >
+              See how it works
+              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" aria-hidden="true" className="w-4 h-4 transition-transform group-hover:translate-x-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
