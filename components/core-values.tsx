@@ -2,23 +2,12 @@ import React from 'react';
 
 import { NeonIcon, type NeonIconName } from '@/components/ui/neon-icon';
 
-const NEON_GLASS_STYLE: React.CSSProperties = {
-  background: 'rgba(255, 255, 255, 0.04)',
-  backdropFilter: 'blur(24px) saturate(200%)',
-  WebkitBackdropFilter: 'blur(24px) saturate(200%)',
-  border: '1px solid rgba(255, 255, 255, 0.12)',
-  borderRadius: '20px',
-  boxShadow:
-    '0 0 40px rgba(123,47,247,0.45), 0 0 80px rgba(247,37,133,0.15), 0 8px 32px rgba(0,0,0,0.5)',
-};
-
 const values: {
   id: string;
   title: string;
   description: string;
   metric: string;
   metricLabel: string;
-  glowColor: string;
   color: string;
   icon: NeonIconName;
 }[] = [
@@ -28,8 +17,7 @@ const values: {
     description: "We don't do 'good enough.' Every line of code and micro-interaction is audited for maximum performance and pixel-perfect rendering.",
     metric: "Pixel-Perfect",
     metricLabel: "RENDERING STANDARD",
-    glowColor: "rgba(123, 47, 247, 0.2)",
-    color: "text-[#7B2FF7]",
+    color: "bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]",
     icon: "code-brackets"
   },
   {
@@ -38,8 +26,7 @@ const values: {
     description: "Speed is a feature. We architect lightweight Next.js and React infrastructures designed to handle global traffic spikes without breaking a sweat.",
     metric: "< 1s",
     metricLabel: "TARGET LOAD TIME",
-    glowColor: "rgba(247, 37, 133, 0.2)",
-    color: "text-[#F72585]",
+    color: "bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]",
     icon: "lightning-bolt"
   },
   {
@@ -48,7 +35,6 @@ const values: {
     description: "Traffic is useless if it doesn't convert. We build revenue engines using predictive analytics and neuromarketing to force user action.",
     metric: "ROI",
     metricLabel: "BUILT FOR CONVERSION",
-    glowColor: "rgba(255, 140, 66, 0.2)",
     color: "bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]",
     icon: "target-chart"
   },
@@ -58,8 +44,7 @@ const values: {
     description: "No black boxes. No offshore ghosting. We maintain tight feedback loops, open Slack channels, and ruthless honesty on every deliverable.",
     metric: "Always-On",
     metricLabel: "COMMUNICATION STANDARD",
-    glowColor: "rgba(255, 255, 255, 0.08)",
-    color: "text-white",
+    color: "bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]",
     icon: "chat-bubble"
   }
 ];
@@ -97,23 +82,11 @@ export function CoreValues() {
       {/* 3. SECTION TWO: THE CARDS CONTAINER */}
       {/* This sits strictly beneath the title block. */}
       <div className="relative w-full flex flex-col mt-16">
-        {values.map((value, index) => (
+        {values.map((value) => (
           <div 
             key={value.id}
-            style={{
-              ...NEON_GLASS_STYLE,
-            }}
             className="interactive-card relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between w-full min-h-[260px] p-6 md:p-10 mb-16"
           >
-            {/* Top edge highlight — gradient-primary at 40% opacity */}
-            <div
-              className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none rounded-t-[20px]"
-              style={{
-                background:
-                  'linear-gradient(90deg, transparent 0%, rgba(123,47,247,0.4) 20%, rgba(247,37,133,0.4) 50%, rgba(255,140,66,0.35) 80%, transparent 100%)',
-              }}
-            />
-
             {/* Decorative oversized background numeral */}
             <div
               className="absolute top-2 right-6 md:right-10 font-black pointer-events-none select-none"
@@ -127,14 +100,6 @@ export function CoreValues() {
               {value.id}
             </div>
 
-            {/* Background Glow */}
-            <div
-              className="absolute inset-0 rounded-[20px] opacity-50 pointer-events-none"
-              style={{
-                background: `radial-gradient(ellipse at 30% 50%, ${value.glowColor} 0%, transparent 70%)`,
-              }}
-            />
-            
             {/* Left Column (Text) */}
             <div className="relative z-20 w-full md:w-[60%] flex flex-col">
               <div className="flex items-center gap-4 mb-4">
