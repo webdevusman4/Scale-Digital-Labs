@@ -3,7 +3,7 @@ import { HiArrowRight } from 'react-icons/hi';
 
 export function HomeHero() {
   return (
-    <section className="relative w-full flex flex-col items-center justify-center min-h-[calc((100vh-80px)*1.3)] md:min-h-[calc((100vh-80px)*1.21)] px-6 bg-transparent overflow-hidden">
+    <section className="relative w-full flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 bg-transparent overflow-hidden">
       
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[600px] bg-[#7B2FF7] opacity-[0.05] blur-[150px] pointer-events-none" />
@@ -12,7 +12,7 @@ export function HomeHero() {
         
         {/* Eyebrow */}
         <div
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full w-max mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 md:px-4 md:py-2 rounded-full w-max mb-8"
           style={{
             border: '1px solid transparent',
             backgroundImage:
@@ -25,7 +25,7 @@ export function HomeHero() {
             className="w-1.5 h-1.5 rounded-full flex-shrink-0"
             style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }}
           />
-          <span className="text-white/85 font-mono text-xs tracking-[0.08em] font-semibold uppercase">
+          <span className="text-white/85 font-mono text-base md:text-sm tracking-[0.08em] font-semibold uppercase">
             DIGITAL GROWTH PARTNERS
           </span>
         </div>
@@ -34,7 +34,7 @@ export function HomeHero() {
         <h1 
           className="font-extrabold leading-[1.1] tracking-tight mb-6"
           style={{ 
-            fontSize: 'clamp(32px, 5vw, 52px)',
+            fontSize: 'clamp(42px, 5.5vw, 58px)',
             overflow: 'visible',
             whiteSpace: 'normal',
             wordBreak: 'keep-all',
@@ -51,7 +51,7 @@ export function HomeHero() {
         </h1>
         
         {/* Subheadline */}
-        <p className="text-base md:text-lg text-white/65 font-normal leading-relaxed max-w-[600px] mb-10">
+        <p className="text-lg md:text-xl text-white/65 font-normal leading-relaxed max-w-[700px] mb-12">
           We architect scalable systems and ROI-obsessed marketing funnels for brands ready to grow.
         </p>
 
@@ -59,7 +59,7 @@ export function HomeHero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 px-10 py-5 md:px-9 md:py-4 rounded-full text-lg md:text-base font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105"
             style={{
               background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
               boxShadow: '0 0 20px rgba(247, 37, 133, 0.3)',
@@ -70,7 +70,7 @@ export function HomeHero() {
           </Link>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white/80 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-lg md:text-base font-semibold tracking-wide text-white/80 hover:text-white transition-colors group"
           >
             See Our Work
             <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
