@@ -16,7 +16,7 @@ const STEPS = [
     num: '02',
     title: 'Strategize',
     description:
-      'We build a custom roadmap across development and marketing tailored to your growth stage.',
+      'Using specific derived revenue metrics from competitive global markets to build financially disciplined ROI campaigns.',
   },
   {
     num: '03',

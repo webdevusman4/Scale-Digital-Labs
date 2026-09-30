@@ -36,7 +36,7 @@ const FOOTER_LINKS: { title: string; links: { label: string; href: string }[] }[
   }
 ];
 
-export function Footer() {
+export function Footer({ enhancedCTA = false }: { enhancedCTA?: boolean }) {
   return (
     <footer className="relative w-full pt-24 pb-12 overflow-hidden bg-[#05070A] border-t border-white/5">
       
@@ -45,27 +45,79 @@ export function Footer() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         
-        {/* Top CTA Section — FIX 4: Slimmer closing strip */}
-        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 pb-12 mb-12 border-b border-white/10">
-          <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white text-center md:text-left">
-            READY TO <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">SCALE?</span>
-          </h2>
-          <button className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-bold text-white transition-all duration-200 bg-[#7B2FF7] rounded-full hover:bg-[#6B21E0] hover:shadow-[0_0_20px_rgba(123,47,247,0.3)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B2FF7] overflow-hidden">
-            <span className="relative z-10 tracking-widest uppercase text-xs">Start a Project</span>
-            {/* Gradient arrow */}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 transition-transform group-hover:translate-x-0.5">
-              <defs>
-                <linearGradient id="footer-arrow-grad" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#C4A1FF" />
-                  <stop offset="55%" stopColor="#FFB3D9" />
-                  <stop offset="100%" stopColor="#FFD4A8" />
-                </linearGradient>
-              </defs>
-              <path d="M3 7h8m0 0L8 4m3 3L8 10" stroke="url(#footer-arrow-grad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-          </button>
-        </div>
+        {/* Top CTA Section */}
+        {enhancedCTA ? (
+          <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 p-10 md:p-14 mb-16 rounded-[32px] bg-gradient-to-r from-[#F72585] to-[#7B2FF7] relative overflow-hidden shadow-[0_0_50px_rgba(247,37,133,0.3)]">
+            
+            <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none flex items-center mix-blend-overlay">
+              <div className="flex animate-marquee gap-16">
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="flex gap-16 items-center whitespace-nowrap">
+                    <span className="font-serif font-black tracking-widest text-4xl text-white">GLOBEX</span>
+                    <span className="font-sans font-extrabold tracking-tight text-4xl text-white">Acme Corp</span>
+                    <span className="font-mono font-bold tracking-[0.2em] text-4xl text-white">SENTRY</span>
+                    <span className="font-sans font-bold italic text-4xl text-white">Vercel</span>
+                    <span className="font-sans font-black text-4xl text-white">Stripe</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4 relative z-10 text-center md:text-left max-w-xl">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+                READY TO SCALE?
+              </h2>
+              <p className="text-white/90 font-medium text-base md:text-lg">
+                Stop settling for bloated agencies and slow execution. Let&apos;s build your engineering and growth engine.
+              </p>
+            </div>
+            
+            <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 md:px-10 md:py-5 font-bold text-[#0A0A0B] transition-all duration-200 bg-white rounded-full hover:bg-gray-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white overflow-hidden whitespace-nowrap z-10 flex-shrink-0 mt-4 md:mt-0">
+              <span className="relative z-10 tracking-widest uppercase text-sm font-black">Start a Project</span>
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 transition-transform group-hover:translate-x-1">
+                <path d="M3 7h8m0 0L8 4m3 3L8 10" stroke="#0A0A0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+        ) : (
+          <div className="w-full relative overflow-hidden pb-12 mb-12 border-b border-white/10">
+            {/* Subtle animated marquee background */}
+            <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none flex items-center -z-0">
+              <div className="flex animate-marquee gap-12" style={{ animationDuration: '25s' }}>
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="flex gap-12 items-center whitespace-nowrap">
+                    <span className="font-serif font-black tracking-widest text-4xl text-white">GLOBEX</span>
+                    <span className="font-sans font-extrabold tracking-tight text-4xl text-white">Acme Corp</span>
+                    <span className="font-mono font-bold tracking-[0.2em] text-4xl text-white">SENTRY</span>
+                    <span className="font-sans font-bold italic text-4xl text-white">Vercel</span>
+                    <span className="font-sans font-black text-4xl text-white">Stripe</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white text-center md:text-left">
+                READY TO <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">SCALE?</span>
+              </h2>
+            <button className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-bold text-white transition-all duration-200 bg-[#7B2FF7] rounded-full hover:bg-[#6B21E0] hover:shadow-[0_0_20px_rgba(123,47,247,0.3)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B2FF7] overflow-hidden">
+              <span className="relative z-10 tracking-widest uppercase text-xs">Start a Project</span>
+              {/* Gradient arrow */}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 transition-transform group-hover:translate-x-0.5">
+                <defs>
+                  <linearGradient id="footer-arrow-grad" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#C4A1FF" />
+                    <stop offset="55%" stopColor="#FFB3D9" />
+                    <stop offset="100%" stopColor="#FFD4A8" />
+                  </linearGradient>
+                </defs>
+                <path d="M3 7h8m0 0L8 4m3 3L8 10" stroke="url(#footer-arrow-grad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+            </button>
+            </div>
+          </div>
+        )}
 
         {/* Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16">
@@ -77,7 +129,7 @@ export function Footer() {
               <span className="font-bold text-white tracking-tight text-xl">ScaleDigitalLabs</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-sm">
-              Premium development and growth infrastructure studio replacing bloated systems with high-performance code and ROI-obsessed funnels.
+              Globally Active. Verifiable engineering base in Karachi, Sindh, Pakistan. | headquarters: Office 101, [Building Name], Karachi.
             </p>
             <div className="flex items-center gap-4 mt-2">
               {[FaLinkedin, FaXTwitter, FaInstagram, FaGithub].map((Icon, idx) => (

@@ -155,8 +155,8 @@ const SERVICES_DATA: Omit<ServiceBlockProps, 'index'>[] = [
     imageAlt: 'SaaS development dashboard showing 99.9% uptime and rising usage metrics',
     eagerLoad: true,
     cluster: 'BUILD & POWER',
-    title: 'SaaS Development',
-    description: 'We architect and deploy production-ready SaaS platforms. From MVP to enterprise scale, we handle the entire technical lifecycle using modern, highly maintainable frameworks.',
+    title: 'High-Performance SaaS & React Development',
+    description: 'Utilizing advanced Next.js architectures, we recently delivered a platform for a global client that achieved a 98/100 performance score and 1.2s page loads.',
     deliverables: [
       'Custom web app development',
       'API integration',
@@ -189,8 +189,8 @@ const SERVICES_DATA: Omit<ServiceBlockProps, 'index'>[] = [
     imageSrc: '/images/service-shopify-ecommerce.png',
     imageAlt: 'Branded e-commerce storefront interface with product grid and checkout button',
     cluster: 'BUILD & POWER',
-    title: 'Shopify & E-commerce Stores',
-    description: 'We architect custom Shopify stores engineered for maximum revenue. Every step of the buyer journey is optimized to turn passive browsers into repeat customers.',
+    title: 'Shopify Architecture & E-commerce',
+    description: 'Currently managing and scaling high-volume Shopify infrastructures optimized for maximum conversion velocity.',
     deliverables: [
       'Custom Shopify theme development',
       'Product page optimization',
@@ -223,8 +223,8 @@ const SERVICES_DATA: Omit<ServiceBlockProps, 'index'>[] = [
     imageSrc: '/images/service-meta-google-ads.png',
     imageAlt: 'Ad performance dashboard showing rising click-through-rate trend and audience targeting',
     cluster: 'MARKET & GROW',
-    title: 'Meta & Google Ads',
-    description: 'ROI-obsessed paid acquisition. We aggressively test, track, and scale winning campaigns to ensure your ad spend becomes more efficient every single month.',
+    title: 'ROI-Driven Meta & Google Ads Management',
+    description: 'Leveraging a strict financially-disciplined ROI architecture, we manage growth campaigns in the competitive E-commerce and FinTech sectors, optimizing for maximum return.',
     deliverables: [
       'Campaign strategy & setup',
       'Audience targeting & A/B testing',
@@ -240,8 +240,8 @@ const SERVICES_DATA: Omit<ServiceBlockProps, 'index'>[] = [
     imageSrc: '/images/service-linkedin-branding.png',
     imageAlt: 'LinkedIn professional branding profile card with engagement and connection stats',
     cluster: 'MARKET & GROW',
-    title: 'LinkedIn Branding',
-    description: "Establish absolute industry authority. We leverage targeted thought-leadership to transform your founders' LinkedIn presence into a high-converting B2B pipeline.",
+    title: 'B2B LinkedIn Branding & Authority',
+    description: "Helping founders establish immediate industry authority through targeted thought-leadership and B2B pipeline development.",
     deliverables: [
       'Company page optimization',
       'Founder/executive personal branding',

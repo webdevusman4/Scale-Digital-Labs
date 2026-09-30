@@ -13,8 +13,8 @@ const values: {
 }[] = [
   {
     id: "01",
-    title: "Precision Engineering",
-    description: "We don't do 'good enough.' Every line of code and micro-interaction is audited for maximum performance and pixel-perfect rendering.",
+    title: "Lean Architecture",
+    description: "No bloated teams or outsourced junior devs. You get senior-level execution from day one.",
     metric: "Pixel-Perfect",
     metricLabel: "RENDERING STANDARD",
     color: "bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]",
@@ -71,11 +71,11 @@ export function CoreValues() {
             style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }}
           />
           <span className="text-white/85 font-mono text-xs tracking-[0.08em] font-semibold uppercase">
-            Core Architecture
+            Zero Bureaucracy.
           </span>
         </div>
         <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white mt-4">
-          ENGINEERING <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">DNA.</span>
+          ABSOLUTE <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">TRANSPARENCY.</span>
         </h2>
       </div>
 

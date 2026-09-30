@@ -6,6 +6,8 @@ import { CoreValues } from '@/components/core-values';
 import { ServicesShowcase } from '@/components/services-showcase';
 import { OurProcess } from '@/components/about/our-process';
 import { Footer } from '@/components/footer';
+import { GlobalLogoBar } from '@/components/ui/global-logo-bar';
+import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
 
 export default function Page() {
   return (
@@ -50,12 +52,12 @@ export default function Page() {
               maxWidth: '100%'
             }}
           >
-            Scaling Brands Through Content,{' '}
+            ONE TEAM. EVERY DIGITAL NEED.{' '}
             <span 
               className="bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]" 
               style={{ filter: 'drop-shadow(0 0 15px rgba(247, 37, 133, 0.4))' }}
             >
-              Code & Conversion.
+              GLOBALLY.
             </span>
           </h1>
           
@@ -88,6 +90,8 @@ export default function Page() {
           
         </div>
       </section>
+      
+      <GlobalLogoBar />
 
       {/* Dual-Track Tech Marquee */}
       <section className="bg-transparent pb-16">
@@ -112,6 +116,9 @@ export default function Page() {
         subtitle={null}
         showBottomLink={true}
       />
+
+      {/* Testimonials */}
+      <TestimonialCarousel />
 
       {/* Footer */}
       <Footer />

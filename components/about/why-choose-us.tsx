@@ -16,10 +16,10 @@ const DIFFERENTIATORS: { num: string; icon: NeonIconName; title: string; descrip
   },
   {
     num: '02',
-    icon: 'hand-point',
-    title: 'Founder-Led Attention',
+    icon: 'code-brackets',
+    title: 'Lean Architecture',
     description:
-      'Direct access to the people actually building your project, not layers of account managers.',
+      'No bloated teams or outsourced junior devs. You get senior-level execution from day one.',
   },
   {
     num: '03',
@@ -128,7 +128,7 @@ export function WhyChooseUs() {
 
           {/* Headline */}
           <h2 className="text-[26px] md:text-4xl lg:text-[44px] font-extrabold text-white tracking-tight leading-tight mb-5">
-            One Team You Can Actually Reach.
+            Zero Bureaucracy. Absolute Transparency.
           </h2>
 
           {/* Subheadline */}

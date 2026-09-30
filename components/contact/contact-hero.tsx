@@ -41,6 +41,19 @@ const BUDGET_RANGES = [
 
 /* ── Contact Form Card ──────────────────────────────────── */
 
+const GradientBorder = () => (
+    <div
+      className="absolute inset-0 rounded-xl pointer-events-none opacity-0 peer-focus:opacity-100 transition-opacity duration-300 z-10"
+      style={{
+        border: '1px solid transparent',
+        background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%) border-box',
+        WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+      }}
+    />
+  );
+
 function ContactFormInner() {
   const searchParams = useSearchParams();
   const prefilledService = searchParams?.get('service') ?? '';
@@ -97,18 +110,6 @@ function ContactFormInner() {
   const selectClasses =
     'block w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent focus-visible:shadow-none appearance-none cursor-pointer peer relative';
 
-  const GradientBorder = () => (
-    <div
-      className="absolute inset-0 rounded-xl pointer-events-none opacity-0 peer-focus:opacity-100 transition-opacity duration-300 z-10"
-      style={{
-        border: '1px solid transparent',
-        background: 'linear-gradient(135deg, #7B2FF7 0%, #F72585 55%, #FF8C42 100%) border-box',
-        WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
-        WebkitMaskComposite: 'xor',
-        maskComposite: 'exclude',
-      }}
-    />
-  );
 
   return (
     <div className="interactive-card overflow-hidden p-6 md:p-10 w-full max-w-[480px]">

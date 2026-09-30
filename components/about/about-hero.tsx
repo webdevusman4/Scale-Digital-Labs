@@ -64,8 +64,8 @@ export function AboutHero() {
             </div>
 
             <div className="about-hero-text space-y-4">
-              <p className="text-[16px] leading-[1.65] text-white/65">
-                ScaleDigitalLabs is a premier digital agency specializing in high-performance web development, Shopify & e-commerce stores, and data-driven digital marketing.
+              <p className="text-[16px] leading-[1.65] text-white/90 font-medium">
+                Anchored in Karachi, Sindh, Pakistan, our hybrid team combines Silicon Valley methodologies with focused execution, optimized for value for global clients across E-commerce, SaaS, and FinTech.
               </p>
               <p className="text-[16px] leading-[1.65] text-white/65">
                 We build and maintain what powers your brand &mdash; SaaS development, Web Dev &amp; Maintenance, and Shopify-powered stores. Then we grow it with Google &amp; Meta Ads, social media marketing, and LinkedIn branding.

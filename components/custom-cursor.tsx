@@ -42,6 +42,7 @@ export function CustomCursor() {
 
   const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   if (!mounted || isMobile) return null;

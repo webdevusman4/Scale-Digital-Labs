@@ -183,7 +183,7 @@ export function WhatWeDo() {
 
           {/* Headline */}
           <h2 className="text-3xl md:text-[40px] lg:text-[48px] font-extrabold text-white tracking-tight leading-tight mb-5">
-            One Team. Every Digital Need.
+            The Engineering & Growth Arsenal.
           </h2>
 
           {/* Subheadline */}

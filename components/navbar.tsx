@@ -66,6 +66,7 @@ export function Navbar() {
   }, [isOpen]);
 
   // Close on route change (in case a link is clicked programmatically)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setIsOpen(false); }, [pathname]);
 
   // Close on Escape key
