@@ -29,10 +29,17 @@ export function DirectContact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2.5"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full w-max"
+          style={{
+            border: '1px solid transparent',
+            backgroundImage:
+              'linear-gradient(rgba(11,15,25,0.92), rgba(11,15,25,0.92)), linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)',
+            backgroundOrigin: 'border-box',
+            backgroundClip: 'padding-box, border-box',
+          }}
         >
-          <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }} />
-          <span className="text-xs font-bold tracking-[0.1em] uppercase text-white/50">
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42)' }} />
+          <span className="text-white/85 font-mono text-xs tracking-[0.08em] font-semibold uppercase">
             OR REACH US DIRECTLY
           </span>
         </motion.div>
