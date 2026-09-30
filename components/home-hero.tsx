@@ -15,25 +15,26 @@ const headlineVariations = [
 
 function RotatingHeroHeadline() {
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const prefersReducedMotion = 
     typeof window !== 'undefined' && 
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || isPaused) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % headlineVariations.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, [prefersReducedMotion]);
+  }, [isPaused, prefersReducedMotion]);
 
   const current = headlineVariations[index];
 
   return (
-    <div 
-      className="min-h-[140px] md:min-h-[160px] w-full flex flex-col justify-center items-center mb-6"
-    >
+    <div className="min-h-[140px] md:min-h-[160px] w-full flex flex-col justify-center items-center mb-6">
       <h1 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
         className="font-extrabold tracking-tight text-center"
         style={{ 
           fontSize: 'clamp(42px, 5.5vw, 58px)', 
@@ -44,7 +45,7 @@ function RotatingHeroHeadline() {
         ONE TEAM.{' '}
         <AnimatePresence mode="wait">
           <motion.span
-            key={index}
+            key={`${current.line1}-${current.gradientWord}`}
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={prefersReducedMotion ? {} : { opacity: 0, y: -12 }}
