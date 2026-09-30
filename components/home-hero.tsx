@@ -3,31 +3,79 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
-const PHRASES = [
-  { text: "EVERY DIGITAL NEED.", highlight: "GLOBALLY." },
-  { text: "UNMATCHED DIGITAL", highlight: "EXCELLENCE." },
-  { text: "SCALABLE GROWTH", highlight: "ARCHITECTURE." },
-  { text: "LIMITLESS BRAND", highlight: "ELEVATION." },
-  { text: "NEXT-GEN WEB", highlight: "EXPERIENCES." },
+const headlineVariations = [
+  { line1: "EVERY DIGITAL", line2Prefix: "NEED.", gradientWord: "GLOBALLY." },
+  { line1: "EVERY GROWTH", line2Prefix: "GOAL.", gradientWord: "ACHIEVED." },
+  { line1: "EVERY MARKET", line2Prefix: "EDGE.", gradientWord: "UNLOCKED." },
+  { line1: "EVERY BRAND", line2Prefix: "STORY.", gradientWord: "AMPLIFIED." },
+  { line1: "EVERY REVENUE", line2Prefix: "GOAL.", gradientWord: "ENGINEERED." },
 ];
 
-export function HomeHero() {
+function RotatingHeroHeadline() {
   const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  const prefersReducedMotion = 
+    typeof window !== 'undefined' && 
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   useEffect(() => {
+    if (prefersReducedMotion || isPaused) return;
     const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % PHRASES.length);
-        setFade(true);
-      }, 300);
-    }, 1800); // 1.8 seconds rotation
+      setIndex((prev) => (prev + 1) % headlineVariations.length);
+    }, 3800);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused, prefersReducedMotion]);
 
+  const current = headlineVariations[index];
+
+  return (
+    <div 
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      className="min-h-[140px] md:min-h-[160px] w-full flex flex-col justify-center items-center mb-6"
+    >
+      <h1 
+        className="font-extrabold tracking-tight text-center"
+        style={{ 
+          fontSize: 'clamp(42px, 5.5vw, 58px)', 
+          lineHeight: 1.1,
+          wordBreak: 'keep-all',
+        }}
+      >
+        ONE TEAM.{' '}
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={index}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={prefersReducedMotion ? {} : { opacity: 0, y: -12 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="inline-block align-top"
+          >
+            {current.line1}
+            <br />
+            {current.line2Prefix}{' '}
+            <span 
+              className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]"
+              style={{ filter: 'drop-shadow(0 0 15px rgba(247, 37, 133, 0.4))' }}
+            >
+              {current.gradientWord}
+            </span>
+          </motion.span>
+        </AnimatePresence>
+      </h1>
+
+      {/* Screen-reader-only static fallback — announces once, not on every rotation */}
+      <span className="sr-only">
+        One Team. Every Digital Need. Globally.
+      </span>
+    </div>
+  );
+}
+
+export function HomeHero() {
   return (
     <section className="relative w-full flex flex-col items-center justify-center min-h-[calc(100vh_-_80px)] pt-[60px] pb-[55px] px-6 bg-transparent overflow-hidden">
       
@@ -56,32 +104,7 @@ export function HomeHero() {
           </span>
         </div>
         
-        {/* Main Headline */}
-        <h1 
-          className="font-extrabold leading-[1.1] tracking-tight mb-6"
-          style={{ 
-            fontSize: 'clamp(42px, 5.5vw, 58px)',
-            overflow: 'visible',
-            whiteSpace: 'normal',
-            wordBreak: 'keep-all',
-            maxWidth: '100%',
-            minHeight: '140px'
-          }}
-        >
-          ONE TEAM.{' '}
-          <motion.span
-            animate={{ opacity: fade ? 1 : 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            {PHRASES[index].text}{' '}
-            <span 
-              className="bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]" 
-              style={{ filter: 'drop-shadow(0 0 15px rgba(247, 37, 133, 0.4))' }}
-            >
-              {PHRASES[index].highlight}
-            </span>
-          </motion.span>
-        </h1>
+        <RotatingHeroHeadline />
         
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-white/65 font-normal leading-relaxed max-w-[700px] mb-12">
