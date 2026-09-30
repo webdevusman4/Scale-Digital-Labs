@@ -3,7 +3,7 @@ import { HiArrowRight } from 'react-icons/hi';
 
 export function HomeHero() {
   return (
-    <section className="relative w-full flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 bg-transparent overflow-hidden">
+    <section className="relative w-full flex flex-col items-center justify-center min-h-[calc((100vh-80px)*1.3)] md:min-h-[calc((100vh-80px)*1.1)] px-6 bg-transparent overflow-hidden">
       
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[600px] bg-[#7B2FF7] opacity-[0.05] blur-[150px] pointer-events-none" />
