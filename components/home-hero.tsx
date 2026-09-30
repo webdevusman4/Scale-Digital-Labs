@@ -1,7 +1,33 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
+import { motion } from 'motion/react';
+
+const PHRASES = [
+  { text: "EVERY DIGITAL NEED.", highlight: "GLOBALLY." },
+  { text: "UNMATCHED DIGITAL", highlight: "EXCELLENCE." },
+  { text: "SCALABLE GROWTH", highlight: "ARCHITECTURE." },
+  { text: "LIMITLESS BRAND", highlight: "ELEVATION." },
+  { text: "NEXT-GEN WEB", highlight: "EXPERIENCES." },
+];
 
 export function HomeHero() {
+  const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % PHRASES.length);
+        setFade(true);
+      }, 300);
+    }, 1800); // 1.8 seconds rotation
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative w-full flex flex-col items-center justify-center min-h-[calc(100vh_-_80px)] pt-[60px] pb-[55px] px-6 bg-transparent overflow-hidden">
       
@@ -38,16 +64,23 @@ export function HomeHero() {
             overflow: 'visible',
             whiteSpace: 'normal',
             wordBreak: 'keep-all',
-            maxWidth: '100%'
+            maxWidth: '100%',
+            minHeight: '140px'
           }}
         >
-          ONE TEAM. EVERY DIGITAL NEED.{' '}
-          <span 
-            className="bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]" 
-            style={{ filter: 'drop-shadow(0 0 15px rgba(247, 37, 133, 0.4))' }}
+          ONE TEAM.{' '}
+          <motion.span
+            animate={{ opacity: fade ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            GLOBALLY.
-          </span>
+            {PHRASES[index].text}{' '}
+            <span 
+              className="bg-clip-text text-transparent bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]" 
+              style={{ filter: 'drop-shadow(0 0 15px rgba(247, 37, 133, 0.4))' }}
+            >
+              {PHRASES[index].highlight}
+            </span>
+          </motion.span>
         </h1>
         
         {/* Subheadline */}
