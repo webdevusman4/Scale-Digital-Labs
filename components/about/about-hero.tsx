@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 export function AboutHero() {
   return (
-    <section className="relative w-full min-h-screen px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip flex flex-col justify-center">
+    <section className="relative w-full min-h-[calc(100vh-80px)] px-6 md:px-12 max-w-7xl mx-auto overflow-x-clip flex flex-col justify-center">
 
       {/* Background Volumetric Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[400px] bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42] opacity-[0.08] blur-[150px] pointer-events-none" />
