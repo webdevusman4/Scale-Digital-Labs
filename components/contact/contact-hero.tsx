@@ -115,7 +115,7 @@ function CustomSelect({
             transition={{ duration: 0.2 }}
             className="absolute z-50 w-full mt-2 bg-[#12121C] border border-white/[0.12] rounded-xl overflow-hidden shadow-2xl backdrop-blur-xl"
           >
-            <div className="max-h-60 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="max-h-60 overflow-y-auto py-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {options.map((option) => (
                 <button
                   type="button"
@@ -204,7 +204,7 @@ function ContactFormInner() {
 
 
   return (
-    <div className="interactive-card overflow-hidden p-6 md:p-10 w-full max-w-[480px]">
+    <div className="interactive-card p-6 md:p-10 w-full max-w-[480px]">
       {/* Top highlight */}
       <div
         className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
