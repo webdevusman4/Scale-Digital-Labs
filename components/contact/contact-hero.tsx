@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useRef, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { HiOutlineCheckCircle } from 'react-icons/hi2';
@@ -54,6 +54,91 @@ const GradientBorder = () => (
     />
   );
 
+/* ── Custom Select Component ────────────────────────────── */
+
+function CustomSelect({
+  name,
+  value,
+  options,
+  placeholder,
+  onChange,
+}: {
+  name: string;
+  value: string;
+  options: string[];
+  placeholder: string;
+  onChange: (name: string, value: string) => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  return (
+    <div className="relative" ref={containerRef}>
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className={`block w-full bg-white/[0.04] border border-white/[0.12] rounded-xl px-4 py-3.5 text-sm text-left outline-none transition-all duration-300 focus:bg-white/[0.06] focus:border-transparent peer flex justify-between items-center ${
+          value ? 'text-white' : 'text-white/40'
+        }`}
+      >
+        <span className="truncate">{value || placeholder}</span>
+        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
+            <path
+              d="M3 4.5L6 7.5L9 4.5"
+              stroke="#8B5CF6"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </motion.div>
+      </button>
+      <GradientBorder />
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute z-50 w-full mt-2 bg-[#12121C] border border-white/[0.12] rounded-xl overflow-hidden shadow-2xl backdrop-blur-xl"
+          >
+            <div className="max-h-60 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              {options.map((option) => (
+                <button
+                  type="button"
+                  key={option}
+                  onClick={() => {
+                    onChange(name, option);
+                    setIsOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-2.5 text-[13px] transition-colors duration-200 hover:bg-white/[0.08] ${
+                    value === option ? 'text-[#8B5CF6] bg-white/[0.04]' : 'text-white/80'
+                  }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function ContactFormInner() {
   const searchParams = useSearchParams();
   const prefilledService = searchParams?.get('service') ?? '';
@@ -99,6 +184,13 @@ function ContactFormInner() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error on change
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const handleCustomSelect = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -189,54 +281,21 @@ function ContactFormInner() {
 
             {/* Project Type + Budget (side by side on desktop) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="relative">
-                <select
-                  name="projectType"
-                  value={formData.projectType}
-                  onChange={handleChange}
-                  className={`${selectClasses} ${formData.projectType ? 'text-white' : 'text-white/40'}`}
-                >
-                  <option value="" disabled>
-                    Project Type
-                  </option>
-                  {PROJECT_TYPES.map((t) => (
-                    <option key={t} value={t} className="bg-[#12121C] text-white">
-                      {t}
-                    </option>
-                  ))}
-                </select>
-                <GradientBorder />
-                {/* Custom chevron */}
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none z-20">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M3 4.5L6 7.5L9 4.5" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
+              <CustomSelect
+                name="projectType"
+                value={formData.projectType}
+                options={PROJECT_TYPES}
+                placeholder="Project Type"
+                onChange={handleCustomSelect}
+              />
 
-              <div className="relative">
-                <select
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className={`${selectClasses} ${formData.budget ? 'text-white' : 'text-white/40'}`}
-                >
-                  <option value="" disabled>
-                    Budget Range
-                  </option>
-                  {BUDGET_RANGES.map((b) => (
-                    <option key={b} value={b} className="bg-[#12121C] text-white">
-                      {b}
-                    </option>
-                  ))}
-                </select>
-                <GradientBorder />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none z-20">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M3 4.5L6 7.5L9 4.5" stroke="#8B5CF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
+              <CustomSelect
+                name="budget"
+                value={formData.budget}
+                options={BUDGET_RANGES}
+                placeholder="Budget Range"
+                onChange={handleCustomSelect}
+              />
             </div>
 
             {/* Message */}
