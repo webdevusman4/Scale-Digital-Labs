@@ -24,7 +24,7 @@ function RotatingHeroHeadline() {
     if (prefersReducedMotion || isPaused) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % headlineVariations.length);
-    }, 500);
+    }, 1000);
     return () => clearInterval(interval);
   }, [isPaused, prefersReducedMotion]);
 
@@ -51,7 +51,7 @@ function RotatingHeroHeadline() {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={prefersReducedMotion ? {} : { opacity: 0, y: -12 }}
-            transition={{ duration: 0.15, ease: 'easeOut' }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
             className="inline-block align-top"
           >
             {current.line1}
