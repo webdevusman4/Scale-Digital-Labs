@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { HiArrowRight } from 'react-icons/hi';
-import { GlobalLogoBar } from '@/components/ui/global-logo-bar';
 
 const services = [
   { 
@@ -116,9 +115,7 @@ export function ServicesShowcase() {
         </Link>
       </div>
       
-      <div className="mt-16 border-t border-white/5 pt-12">
-        <GlobalLogoBar />
-      </div>
+
     </section>
   );
 }

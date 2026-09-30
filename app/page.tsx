@@ -5,7 +5,6 @@ import { CoreValues } from '@/components/core-values';
 import { ServicesShowcase } from '@/components/services-showcase';
 import { OurProcess } from '@/components/about/our-process';
 import { Footer } from '@/components/footer';
-import { GlobalLogoBar } from '@/components/ui/global-logo-bar';
 import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
 
 export default function Page() {
@@ -15,7 +14,6 @@ export default function Page() {
       {/* Hero Section */}
       <HomeHero />
       
-      <GlobalLogoBar />
 
       {/* Dual-Track Tech Marquee */}
       <section className="bg-transparent pb-16">
