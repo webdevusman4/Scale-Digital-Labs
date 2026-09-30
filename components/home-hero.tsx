@@ -15,25 +15,22 @@ const headlineVariations = [
 
 function RotatingHeroHeadline() {
   const [index, setIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const prefersReducedMotion = 
     typeof window !== 'undefined' && 
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   useEffect(() => {
-    if (prefersReducedMotion || isPaused) return;
+    if (prefersReducedMotion) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % headlineVariations.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, [isPaused, prefersReducedMotion]);
+  }, [prefersReducedMotion]);
 
   const current = headlineVariations[index];
 
   return (
     <div 
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       className="min-h-[140px] md:min-h-[160px] w-full flex flex-col justify-center items-center mb-6"
     >
       <h1 
