@@ -343,7 +343,7 @@ export function ContactForm() {
 
 export function ContactHero() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-80px)] px-6 md:px-12 max-w-7xl mx-auto overflow-hidden flex flex-col justify-center">
+    <section className="relative w-full pt-4 md:pt-6 pb-16 md:pb-20 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden full-height-hero flex flex-col justify-center">
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/4 w-[50vw] h-[400px] bg-[#7B2FF7] opacity-[0.06] blur-[180px] pointer-events-none" />
 
