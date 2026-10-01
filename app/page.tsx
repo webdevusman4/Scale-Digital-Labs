@@ -22,10 +22,9 @@ export default function Page() {
 
       {/* Agency Introduction Section */}
       <section 
-        className="w-full max-w-7xl mx-auto px-6 py-16 md:py-0 bg-transparent flex flex-col justify-center min-h-fit md:min-h-[calc(100vh_-_var(--header-height)_-_80px)] border-4 border-transparent"
-        style={{ borderImage: 'linear-gradient(to right, #7B2FF7, #F72585, #FF8C42) 1' }}
+        className="w-full max-w-7xl mx-auto px-6 py-16 md:py-0 bg-transparent flex flex-col justify-center min-h-fit md:min-h-[calc(100vh_-_var(--header-height))]"
       >
-        {/* <AgencyIntro /> */}
+        <AgencyIntro />
       </section>
 
       {/* Sticky Core Values Section */}
