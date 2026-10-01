@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
@@ -39,8 +39,26 @@ export function ProjectDetail({
   project: Project;
   relatedProjects: Project[];
 }) {
-  const heroImage = project.galleryImages[0] || project.thumbnailImage;
-  const remainingImages = project.galleryImages.slice(1);
+  const allImages = [project.thumbnailImage, ...project.galleryImages];
+  const heroImage = allImages[0];
+  const remainingImages = allImages.slice(1);
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+  
+  const nextImage = () => {
+    if (lightboxIndex !== null && lightboxIndex < allImages.length - 1) {
+      setLightboxIndex(lightboxIndex + 1);
+    }
+  };
+  
+  const prevImage = () => {
+    if (lightboxIndex !== null && lightboxIndex > 0) {
+      setLightboxIndex(lightboxIndex - 1);
+    }
+  };
 
   return (
     <div className="relative w-full max-w-[1100px] mx-auto px-6 md:px-12 pt-8 pb-16">
@@ -100,7 +118,8 @@ export function ProjectDetail({
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.15 }}
-        className="mb-16"
+        className="mb-16 cursor-pointer"
+        onClick={() => openLightbox(0)}
       >
         <ScreenshotFrame src={heroImage} alt={`${project.title} — main view`} eager />
       </motion.div>
@@ -165,11 +184,12 @@ export function ProjectDetail({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {remainingImages.map((img, idx) => (
-              <ScreenshotFrame
-                key={idx}
-                src={img}
-                alt={`${project.title} — screen ${idx + 2}`}
-              />
+              <div key={idx} onClick={() => openLightbox(idx + 1)} className="cursor-pointer">
+                <ScreenshotFrame
+                  src={img}
+                  alt={`${project.title} — screen ${idx + 2}`}
+                />
+              </div>
             ))}
           </div>
         </motion.div>
@@ -195,6 +215,47 @@ export function ProjectDetail({
             ))}
           </div>
         </motion.div>
+      )}
+
+      {/* ── Lightbox Overlay ─────────────────────────── */}
+      {lightboxIndex !== null && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-sm">
+          {/* Close Button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors z-[101]"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+          
+          {/* Prev Button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            disabled={lightboxIndex === 0}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed z-[101]"
+          >
+            <HiArrowLeft className="w-6 h-6" />
+          </button>
+          
+          {/* Image */}
+          <img
+            src={allImages[lightboxIndex]}
+            alt="Expanded view"
+            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl relative z-[101]"
+          />
+          
+          {/* Next Button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            disabled={lightboxIndex === allImages.length - 1}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed z-[101]"
+          >
+            <HiArrowRight className="w-6 h-6" />
+          </button>
+
+          {/* Click background to close */}
+          <div className="absolute inset-0 z-[100]" onClick={closeLightbox} />
+        </div>
       )}
     </div>
   );

@@ -44,8 +44,8 @@ export type CategoryFilter = (typeof CATEGORIES)[number];
 export const PROJECTS_DATA: Project[] = [
   // ─── New Web Development Project ───────────────────
   {
-    slug: 'new-website-project',
-    title: 'New Website Project',
+    slug: 'scale-digital-labs-website',
+    title: 'Scale Digital Labs Redesign',
     type: 'client',
     category: 'Web Dev & Maintenance',
     thumbnailImage: '/images/portfolio/web-development/new-website/thumb.png',

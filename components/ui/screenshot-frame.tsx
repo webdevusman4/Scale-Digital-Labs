@@ -17,12 +17,7 @@ interface ScreenshotFrameProps {
 export function ScreenshotFrame({ src, alt, className = '', eager = false }: ScreenshotFrameProps) {
   return (
     <div className={`project-screenshot-frame ${className}`}>
-      {/* Chrome bar background */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-[rgba(20,20,30,0.9)] z-[2] flex items-center px-3 gap-1.5">
-        <span className="w-[10px] h-[10px] rounded-full bg-white/[0.15]" />
-        <span className="w-[10px] h-[10px] rounded-full bg-white/[0.15]" />
-        <span className="w-[10px] h-[10px] rounded-full bg-white/[0.15]" />
-      </div>
+      {/* Removed Chrome bar background to prevent hiding image */}
       <img
         src={src}
         alt={alt}
