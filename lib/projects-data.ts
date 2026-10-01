@@ -44,8 +44,8 @@ export type CategoryFilter = (typeof CATEGORIES)[number];
 export const PROJECTS_DATA: Project[] = [
   // ─── New Web Development Project ───────────────────
   {
-    slug: 'scale-digital-labs-website',
-    title: 'Scale Digital Labs Redesign',
+    slug: 'crave-and-crust',
+    title: 'Crave & Crust Artisan Bakery',
     type: 'client',
     category: 'Web Dev & Maintenance',
     thumbnailImage: '/images/portfolio/web-development/new-website/thumb.png',
@@ -55,9 +55,9 @@ export const PROJECTS_DATA: Project[] = [
       '/images/portfolio/web-development/new-website/3.png',
       '/images/portfolio/web-development/new-website/4.png',
     ],
-    oneLineSummary: 'A complete custom website build showcasing modern web development.',
-    problem: 'The client needed a high-converting, aesthetically pleasing, and fast modern web presence.',
-    approach: 'We designed a responsive and dynamic layout focusing on rich visuals and modern web technologies to maximize user engagement.',
+    oneLineSummary: 'A complete custom website build for an artisan kitchen and bakery.',
+    problem: 'The client needed a high-converting, aesthetically pleasing, and fast modern web presence for their bakery.',
+    approach: 'We designed a responsive and dynamic layout focusing on rich visuals of their baked goods and modern web technologies to maximize user engagement.',
   },
   // ─── SaaS Development (4 projects) ───────────────────
   {
