@@ -42,6 +42,23 @@ export type CategoryFilter = (typeof CATEGORIES)[number];
  */
 
 export const PROJECTS_DATA: Project[] = [
+  // ─── New Web Development Project ───────────────────
+  {
+    slug: 'new-website-project',
+    title: 'New Website Project',
+    type: 'client',
+    category: 'Web Dev & Maintenance',
+    thumbnailImage: '/images/portfolio/web-development/new-website/thumb.png',
+    galleryImages: [
+      '/images/portfolio/web-development/new-website/1.png',
+      '/images/portfolio/web-development/new-website/2.png',
+      '/images/portfolio/web-development/new-website/3.png',
+      '/images/portfolio/web-development/new-website/4.png',
+    ],
+    oneLineSummary: 'A complete custom website build showcasing modern web development.',
+    problem: 'The client needed a high-converting, aesthetically pleasing, and fast modern web presence.',
+    approach: 'We designed a responsive and dynamic layout focusing on rich visuals and modern web technologies to maximize user engagement.',
+  },
   // ─── SaaS Development (4 projects) ───────────────────
   {
     slug: 'meridian-analytics-platform',
