@@ -8,6 +8,7 @@
   --color-purple: #7B2FF7;
   --color-fuchsia: #F72585;
   --color-orange: #FF8C42;
+  --header-height: 80px;
 }
 
 body {
@@ -164,8 +165,8 @@ select:-webkit-autofill:focus {
 
 @media (min-width: 768px) {
   .full-height-hero {
-    min-height: calc(100vh - 80px);
-    min-height: calc(100dvh - 80px);
+    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
   }
 }
 
@@ -189,10 +190,11 @@ select:-webkit-autofill:focus {
 
 @media (min-width: 768px) {
   .about-hero-height {
-    min-height: calc(100vh - 80px);
-    min-height: calc(100dvh - 80px);
+    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
   }
 }
+
 
 @media (min-width: 768px) and (max-height: 800px) {
   .about-hero-height {

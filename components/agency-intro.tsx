@@ -4,7 +4,7 @@ import { HiArrowRight } from 'react-icons/hi';
 
 export function AgencyIntro() {
   return (
-    <div className="relative w-full max-w-7xl mx-auto flex justify-center">
+    <div className="relative w-full flex justify-center items-center">
       {/* Ambient Wash */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
