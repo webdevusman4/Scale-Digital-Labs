@@ -2,7 +2,8 @@ import { ServicesHero } from '@/components/services/services-hero';
 import { TechMarquee } from '@/components/tech-marquee';
 import { ServicesOverview } from '@/components/services/services-overview';
 import { ServiceDeepDives } from '@/components/services/service-block';
-import { OurProcess } from '@/components/about/our-process';
+// import { OurProcess } from '@/components/about/our-process';
+import { OurProcess2 } from '@/components/about2/our-process2';
 import { ServicesFaq } from '@/components/services/services-faq';
 import { ServicesCta } from '@/components/services/services-cta';
 import { Footer } from '@/components/footer';
@@ -29,7 +30,8 @@ export default function ServicesPage() {
       <SectionDivider />
 
       {/* Reused Our Process timeline */}
-      <OurProcess />
+      {/* <OurProcess /> */}
+      <OurProcess2 />
 
       <SectionDivider />
 

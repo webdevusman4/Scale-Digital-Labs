@@ -235,3 +235,98 @@ select:-webkit-autofill:focus {
   object-position: top;
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHT THEME OVERRIDES
+   Scoped under body.light-theme so the dark theme remains
+   the untouched default. Toggle by adding/removing the
+   class on <body>.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 1. Body Base Styles ─────────────────────────────────── */
+body.light-theme {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* ── 2. Card Surfaces ────────────────────────────────────── */
+.light-theme .interactive-card,
+.light-theme .static-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .interactive-card:hover {
+  background: rgba(255, 255, 255, 0.85);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    linear-gradient(135deg, #7B2FF7, #F72585, #FF8C42);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow:
+    0 0 20px rgba(247, 37, 133, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── 3. Focus Rings ──────────────────────────────────────── */
+.light-theme :focus-visible:not(input):not(textarea):not(select) {
+  box-shadow:
+    0 0 0 2px rgba(248, 250, 252, 1),
+    0 0 0 4px rgba(247, 37, 133, 0.6),
+    0 0 12px rgba(247, 37, 133, 0.25);
+}
+
+.light-theme nav a:focus-visible,
+.light-theme .interactive-card:focus-visible {
+  box-shadow:
+    0 0 0 2px rgba(248, 250, 252, 1),
+    0 0 0 4px rgba(247, 37, 133, 0.6),
+    0 0 12px rgba(247, 37, 133, 0.25);
+}
+
+/* ── 4. Form Autofill ────────────────────────────────────── */
+.light-theme input:-webkit-autofill,
+.light-theme input:-webkit-autofill:hover,
+.light-theme input:-webkit-autofill:focus,
+.light-theme textarea:-webkit-autofill,
+.light-theme textarea:-webkit-autofill:hover,
+.light-theme textarea:-webkit-autofill:focus,
+.light-theme select:-webkit-autofill,
+.light-theme select:-webkit-autofill:hover,
+.light-theme select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black !important;
+}
+
+/* ── 5. Neon Glow Reduction (softer on light backgrounds) ─ */
+.light-theme .animate-neon-glow-pulse {
+  animation: neon-glow-pulse-light 4s ease-in-out infinite;
+}
+
+@keyframes neon-glow-pulse-light {
+  0%, 100% {
+    box-shadow:
+      -30px -20px 60px rgba(123, 47, 247, 0.10),
+       0    20px 60px rgba(247, 37, 133, 0.08),
+       30px -20px 60px rgba(255, 140, 66, 0.08),
+       0     8px 32px rgba(0, 0, 0, 0.04);
+  }
+  50% {
+    box-shadow:
+      -30px -20px 75px rgba(123, 47, 247, 0.15),
+       0    20px 75px rgba(247, 37, 133, 0.12),
+       30px -20px 75px rgba(255, 140, 66, 0.12),
+       0     8px 32px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* ── 6. Portfolio Screenshot Frame ───────────────────────── */
+.light-theme .project-screenshot-frame {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+

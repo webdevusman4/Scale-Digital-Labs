@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css'; // Global styles
 import { CustomCursor } from '@/components/custom-cursor';
-import { Navbar } from '@/components/navbar';
+import { GlobalNavbar } from '@/components/global-navbar';
 import { MeteorHeroBackground } from '@/components/meteor-hero-background';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 
         <MeteorHeroBackground />
         <CustomCursor />
-        <Navbar />
+        <GlobalNavbar />
         {children}
       </body>
     </html>

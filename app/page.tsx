@@ -3,7 +3,8 @@ import { TechMarquee } from '@/components/tech-marquee';
 import { AgencyIntro } from '@/components/agency-intro';
 import { CoreValues } from '@/components/core-values';
 import { ServicesShowcase } from '@/components/services-showcase';
-import { OurProcess } from '@/components/about/our-process';
+// import { OurProcess } from '@/components/about/our-process';
+import { OurProcess2 } from '@/components/about2/our-process2';
 import { Footer } from '@/components/footer';
 import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
 
@@ -34,7 +35,15 @@ export default function Page() {
       <ServicesShowcase />
 
       {/* Process Section */}
+      {/*
       <OurProcess 
+        eyebrow="How We Work"
+        title={<>Our Process, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">Simplified.</span></>}
+        subtitle={null}
+        showBottomLink={true}
+      />
+      */}
+      <OurProcess2 
         eyebrow="How We Work"
         title={<>Our Process, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2FF7] via-[#F72585] to-[#FF8C42]">Simplified.</span></>}
         subtitle={null}
